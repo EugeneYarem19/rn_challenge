@@ -5,7 +5,11 @@ module.exports = {
       'module-resolver',
       {
         extensions: ['.js', '.ts', '.tsx',],
-        alias: {'@src': './src',},
+        alias: {
+          '@src': './src',
+          '@screens': './src/screens/index.ts',
+          '@navigation': './src/navigation/index.tsx',
+        },
       },
     ],
   ],
