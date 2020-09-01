@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./",
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "jsx": "react-native",
+        "lib": [
+            "es6"
+        ],
+        "moduleResolution": "node",
+        "noEmit": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "paths": {
+            "@src/*": ["src/*"],
+        },
+        "preserveConstEnums": true,
+        "strict": true,
+        "target": "esnext",
+    },
+    "exclude": [
+        "android",
+        "ios",
+        "node_modules",
+    ],
+    "include": [
+        "src/**/*",
+        "__tests__/**/*",
+        ".eslintrc.js",
+        "babel.config.js",
+        "index.js",
+        "jest.config.js",      
+        "metro.config.js"
+    ],
+}
