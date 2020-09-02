@@ -1,34 +1,34 @@
-import { ActionTypes, FetchMoreSuccessAction, FetchMovieSuccessAction, SearchAction, SearchSuccessAction, State, actions, initState, } from "./types";
+import { ActionTypes, FetchMoreSuccessAction, FetchMovieSuccessAction, SearchAction, SearchSuccessAction, State, actionTypes, initState, } from "./types";
 
 export default (state: State = initState, action: ActionTypes): State => {
   switch (action.type) {
-    case actions.SEARCH_REQUEST:
+    case actionTypes.SEARCH_REQUEST:
       return {
         ...state,
         isSearching: true,
         currentSearchTitle: (action as SearchAction).payload.title,
       };
 
-    case actions.SEARCH_SUCCESS:
+    case actionTypes.SEARCH_SUCCESS:
       return {
         ...state,
         isSearching: false,
         foundMovies: (action as SearchSuccessAction).payload.movies,
       };
 
-    case actions.SEARCH_FAILED:
+    case actionTypes.SEARCH_FAILED:
       return {
         ...state,
         isSearching: false,
       };
 
-    case actions.FETCH_MORE_REQUEST:
+    case actionTypes.FETCH_MORE_REQUEST:
       return {
         ...state,
         isFetchingMore: true,
       };
 
-    case actions.FETCH_MORE_SUCCESS:
+    case actionTypes.FETCH_MORE_SUCCESS:
       return {
         ...state,
         isFetchingMore: false,
@@ -36,19 +36,19 @@ export default (state: State = initState, action: ActionTypes): State => {
         nextSearchPage: state.nextSearchPage + 1,
       };
 
-    case actions.FETCH_MORE_FAILED:
+    case actionTypes.FETCH_MORE_FAILED:
       return {
         ...state,
         isFetchingMore: false,
       };
 
-    case actions.FETCH_MOVIE_REQUEST:
+    case actionTypes.FETCH_MOVIE_REQUEST:
       return {
         ...state,
         isFetchingMovie: true,
       };
 
-    case actions.FETCH_MOVIE_SUCCESS: {
+    case actionTypes.FETCH_MOVIE_SUCCESS: {
       const { id, ...restPayload } = (action as FetchMovieSuccessAction).payload;
 
       return {
@@ -58,7 +58,7 @@ export default (state: State = initState, action: ActionTypes): State => {
       };
     }
 
-    case actions.FETCH_MOVIE_FAILED:
+    case actionTypes.FETCH_MOVIE_FAILED:
       return {
         ...state,
         isFetchingMovie: false,

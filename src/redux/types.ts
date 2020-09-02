@@ -1,4 +1,4 @@
-export const actions = {
+export const actionTypes = {
   SEARCH_REQUEST: "SEARCH_REQUEST",
   SEARCH_SUCCESS: "SEARCH_SUCCESS",
   SEARCH_FAILED: "SEARCH_FAILED",

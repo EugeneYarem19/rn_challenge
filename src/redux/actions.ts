@@ -10,7 +10,7 @@ import {
   SearchAction,
   SearchFailedAction,
   SearchSuccessAction,
-  actions as actionTypes,
+  actionTypes,
 } from "./types";
 
 export const actions = {
