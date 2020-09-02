@@ -10,6 +10,7 @@ module.exports = {
           '@screens': './src/screens/index.ts',
           '@navigation': './src/navigation/index.tsx',
           '@redux': './src/redux/index.ts',
+          '@api': './src/api/index.ts',
         },
       },
     ],
