@@ -48,14 +48,15 @@ export default (state: State = initState, action: ActionTypes): State => {
         isFetchingMovie: true,
       };
 
-    case actions.FETCH_MOVIE_SUCCESS:
+    case actions.FETCH_MOVIE_SUCCESS: {
+      const { id, ...restPayload } = (action as FetchMovieSuccessAction).payload;
+
       return {
         ...state,
         isFetchingMovie: false,
-        foundMovies: state.foundMovies.map((item) =>
-          item.id === (action as FetchMovieSuccessAction).payload.id ? { ...item, fullPlot: (action as FetchMovieSuccessAction).payload.fullPlot, } : item
-        ),
+        foundMovies: state.foundMovies.map((item) => (item.id === id ? { ...item, ...restPayload.detailedInfo, } : item)),
       };
+    }
 
     case actions.FETCH_MOVIE_FAILED:
       return {

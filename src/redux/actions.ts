@@ -1,5 +1,6 @@
 import {
   Movie,
+  MovieDetailing,
   FetchMoreAction,
   FetchMoreFailedAction,
   FetchMoreSuccessAction,
@@ -34,9 +35,9 @@ export const actions = {
     type: actionTypes.FETCH_MOVIE_REQUEST,
     payload: { id, },
   }),
-  fetchMovieSuccess: (id: string, fullPlot: string): FetchMovieSuccessAction => ({
+  fetchMovieSuccess: (id: string, detailedInfo: MovieDetailing): FetchMovieSuccessAction => ({
     type: actionTypes.FETCH_MOVIE_SUCCESS,
-    payload: { id, fullPlot, },
+    payload: { id, detailedInfo, },
   }),
   fetchMovieFailed: (): FetchMovieFailedAction => ({ type: actionTypes.FETCH_MOVIE_FAILED, }),
 };

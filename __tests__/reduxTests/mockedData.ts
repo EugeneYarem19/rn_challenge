@@ -3,18 +3,19 @@ import { actionTypes, } from "@redux";
 const title = "Test";
 
 export const mockedData = {
-  fullPlot: "Full plot",
+  detailedInfo: {
+    fullPlot: "Full plot",
+    genre: "Drama",
+    director: "Chris Mason Johnson",
+    cast: "Actors",
+    ratings: [{ source: "Metacritic", value: "70/100", },],
+  },
   id: "t1",
   movies: [
     {
       id: "t1",
       poster: "http://",
       title: title,
-      genre: "Drama",
-      director: "Chris Mason Johnson",
-      shortPlot: "Short plot",
-      cast: "Actors",
-      ratings: [{ source: "Metacritic", value: "70/100", },],
     },
   ],
   title: title,
@@ -44,7 +45,10 @@ export const mockedActions = {
   },
   fetchMovieSuccessAction: {
     type: actionTypes.FETCH_MOVIE_SUCCESS,
-    payload: { id: mockedData.id, fullPlot: mockedData.fullPlot, },
+    payload: {
+      id: mockedData.id,
+      detailedInfo: mockedData.detailedInfo,
+    },
   },
   fetchMovieFailedAction: { type: actionTypes.FETCH_MOVIE_FAILED, },
 };

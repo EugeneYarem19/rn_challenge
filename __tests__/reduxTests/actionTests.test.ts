@@ -31,7 +31,7 @@ describe("actions tests", () => {
   });
 
   test("must create an action to notify about fetching detailed information success", () => {
-    expect(actions.fetchMovieSuccess(mockedData.id, mockedData.fullPlot)).toEqual(mockedActions.fetchMovieSuccessAction);
+    expect(actions.fetchMovieSuccess(mockedData.id, mockedData.detailedInfo)).toEqual(mockedActions.fetchMovieSuccessAction);
   });
 
   test("must create an action to notify about fetching detailed information fail", () => {

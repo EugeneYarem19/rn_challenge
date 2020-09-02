@@ -63,7 +63,7 @@ describe("reducer tests", () => {
   test("must handle FETCH_MOVIE_SUCCESS action", () => {
     const secondMovie = { ...mockedData.movies[0], id: "t2", };
     const resultFoundMovies = [{}, secondMovie,];
-    resultFoundMovies[0] = { ...mockedData.movies[0], fullPlot: mockedData.fullPlot, };
+    resultFoundMovies[0] = { ...mockedData.movies[0], ...mockedData.detailedInfo, };
 
     expect(Reducer({ ...initState, foundMovies: [...mockedData.movies, secondMovie,], }, mockedActions.fetchMovieSuccessAction)).toEqual({
       ...initState,

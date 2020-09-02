@@ -27,13 +27,21 @@ export interface Rating {
 }
 
 export interface Movie {
+  // optional fields will be set after user will request full info about movie
   id: string;
-  poster: string;
+  poster?: string; // can be empty
   title: string;
+  genre?: string;
+  director?: string;
+  fullPlot?: string;
+  cast?: string;
+  ratings?: Rating[];
+}
+
+export interface MovieDetailing {
   genre: string;
   director: string;
-  shortPlot: string;
-  fullPlot?: string; // will be set after user will request full info about movie
+  fullPlot: string;
   cast: string;
   ratings: Rating[];
 }
@@ -84,7 +92,7 @@ export interface FetchMovieAction extends IAction {
 export interface FetchMovieSuccessAction extends IAction {
   payload: {
     id: string;
-    fullPlot: string;
+    detailedInfo: MovieDetailing;
   };
 }
 
