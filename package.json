@@ -8,8 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "lint:fix": "eslint 'src/**' index.js .eslintrc.js --fix",
-    "prettier:fix": "prettier --write 'src/**' .eslintrc.js index.js",
+    "lint:fix": "eslint 'src/**' '__tests__/**' index.js .eslintrc.js --fix",
+    "prettier:fix": "prettier --write 'src/**' '__tests__/**' index.js .eslintrc.js",
     "validate": "npm-run-all --sequential prettier:fix lint:fix test"
   },
   "dependencies": {
