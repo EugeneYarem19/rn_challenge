@@ -7,6 +7,5 @@ module.exports = {
   singleQuote: false, // использовать одинарные кавычки - да!
   trailingComma: "es5", // запятая в последней строке - да
   jsxBracketSameLine: false, // закрывающийся jsx в этой же строке
-  parser: "flow", // парсер - flow (пока не важно)
   semi: true, // точка с запятой - да
 };

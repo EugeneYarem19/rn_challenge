@@ -18,9 +18,8 @@
         "paths": {
             "@src/*": ["src/*"],
             "@screens": ["src/screens/index.ts"],
-            "@navigation": [
-                "src/navigation/index.tsx"
-            ],
+            "@navigation": ["src/navigation/index.tsx"],
+            "@redux": ["src/redux/index.ts"],
         },
         "preserveConstEnums": true,
         "strict": true,
