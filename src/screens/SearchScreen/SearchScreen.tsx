@@ -1,6 +1,8 @@
 import React from "react";
 import { FlatList, Text, View, } from "react-native";
 
+import { LoadingIndicator, } from "@components";
+
 import { Movie, } from "@redux";
 
 import { styles, } from "./styles";
@@ -24,7 +26,9 @@ interface Props {
 
 export const SearchScreen: React.FC<Props> = ({ fetchMore, foundMovies, isFetchingMore, isSearching, renderItem, searchErrorMessage, }): JSX.Element => (
   <View style={styles.screen}>
-    {searchErrorMessage !== "" ? (
+    {isSearching ? (
+      <LoadingIndicator />
+    ) : searchErrorMessage !== "" ? (
       <View style={styles.errorMessageBlock}>
         <Text style={styles.errorMessageText}>{searchErrorMessage}</Text>
       </View>
