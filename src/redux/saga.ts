@@ -6,6 +6,8 @@ import { displayInfo, networkErrorHandler, } from "@utils";
 import { SearchAction, SearchSuccessAction, SearchFailedAction, actionTypes, } from "./types";
 import { actions, } from "./actions";
 
+const infoTitle = "Something has gone wrong!";
+
 export function* onSearch(action: SearchAction): Generator<CallEffect | PutEffect<SearchSuccessAction | SearchFailedAction>> {
   try {
     const response = (yield call(api.search, action.payload.title)) as SearchResponse;
@@ -27,12 +29,12 @@ export function* onSearch(action: SearchAction): Generator<CallEffect | PutEffec
         console.warn("BAD");
       }
     } else {
-      displayInfo(networkErrorHandler(response), "Something has gone wrong!");
+      displayInfo(networkErrorHandler(response), infoTitle);
       yield put(actions.searchFailed(""));
     }
   } catch (error) {
     console.warn("onSearch error=", error);
-    displayInfo((error as Error).message, "Something has gone wrong!");
+    displayInfo((error as Error).message, infoTitle);
     yield put(actions.searchFailed(""));
   }
 }

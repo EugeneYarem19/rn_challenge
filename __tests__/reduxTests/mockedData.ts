@@ -35,6 +35,10 @@ export const mockedActions = {
     type: actionTypes.SEARCH_FAILED,
     payload: { errorMessage: mockedData.errorMessage, },
   },
+  searchFailedNoMessageAction: {
+    type: actionTypes.SEARCH_FAILED,
+    payload: { errorMessage: "", },
+  },
 
   fetchMoreAction: { type: actionTypes.FETCH_MORE_REQUEST, },
   fetchMoreSuccessAction: {

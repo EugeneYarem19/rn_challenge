@@ -23,11 +23,19 @@ describe("reducer tests", () => {
     });
   });
 
-  test("must handle SEARCH_FAILED action", () => {
+  test("must handle SEARCH_FAILED with message action", () => {
     expect(Reducer(undefined, mockedActions.searchFailedAction)).toEqual({
       ...initState,
       isSearching: false,
       searchErrorMessage: mockedData.errorMessage,
+    });
+  });
+
+  test("must handle SEARCH_FAILED without message action", () => {
+    expect(Reducer(undefined, mockedActions.searchFailedNoMessageAction)).toEqual({
+      ...initState,
+      isSearching: false,
+      searchErrorMessage: "",
     });
   });
 
