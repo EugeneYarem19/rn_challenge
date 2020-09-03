@@ -17,6 +17,7 @@ export default (state: State = initState, action: ActionTypes): State => {
         ...state,
         isSearching: true,
         currentSearchTitle: (action as SearchAction).payload.title,
+        searchErrorMessage: "",
       };
 
     case actionTypes.SEARCH_SUCCESS:
