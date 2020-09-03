@@ -11,6 +11,7 @@ module.exports = {
           '@navigation': './src/navigation/index.tsx',
           '@redux': './src/redux/index.ts',
           '@api': './src/api/index.ts',
+          '@utils': './src/utils/index.ts',
         },
       },
     ],

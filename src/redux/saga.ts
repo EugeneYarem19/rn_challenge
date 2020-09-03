@@ -1,3 +1,42 @@
-import { ForkEffect, } from "redux-saga/effects";
+import { CallEffect, ForkEffect, PutEffect, call, put, takeLatest, } from "redux-saga/effects";
 
-export default function* saga(): Generator<ForkEffect> {}
+import { SearchResponse, SearchErrorResponse, SearchOkResponse, api, } from "@api";
+import { displayInfo, networkErrorHandler, } from "@utils";
+
+import { SearchAction, SearchSuccessAction, SearchFailedAction, actionTypes, } from "./types";
+import { actions, } from "./actions";
+
+export function* onSearch(action: SearchAction): Generator<CallEffect | PutEffect<SearchSuccessAction | SearchFailedAction>> {
+  try {
+    const response = (yield call(api.search, action.payload.title)) as SearchResponse;
+
+    console.warn("search response", response);
+
+    if (response.ok) {
+      if (response.data?.Response === "True") {
+        const movies = (response.data as SearchOkResponse).Search.map((item) => ({
+          id: item.imdbID,
+          poster: item?.Poster || "",
+          title: item.Title,
+        }));
+
+        yield put(actions.searchSuccess(movies));
+        console.warn("OK");
+      } else {
+        yield put(actions.searchFailed((response.data as SearchErrorResponse).Error || ""));
+        console.warn("BAD");
+      }
+    } else {
+      displayInfo(networkErrorHandler(response), "Something has gone wrong!");
+      yield put(actions.searchFailed(""));
+    }
+  } catch (error) {
+    console.warn("onSearch error=", error);
+    displayInfo((error as Error).message, "Something has gone wrong!");
+    yield put(actions.searchFailed(""));
+  }
+}
+
+export default function* saga(): Generator<ForkEffect> {
+  yield takeLatest(actionTypes.SEARCH_REQUEST, onSearch);
+}
