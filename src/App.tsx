@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /**
  * React Native app for evaluation that lists searched results from OMDb API
  * https://github.com/EugeneYarem19/rn_challenge
