@@ -1,5 +1,5 @@
 import Reducer from "@src/redux/reducer";
-import { initState, } from "@src/redux/types";
+import { initState, } from "@redux";
 import { mockedActions, mockedData, } from "./mockedData";
 
 describe("reducer tests", () => {
@@ -27,6 +27,7 @@ describe("reducer tests", () => {
     expect(Reducer(undefined, mockedActions.searchFailedAction)).toEqual({
       ...initState,
       isSearching: false,
+      searchErrorMessage: mockedData.errorMessage,
     });
   });
 

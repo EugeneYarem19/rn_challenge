@@ -22,7 +22,7 @@ export const actions = {
     type: actionTypes.SEARCH_SUCCESS,
     payload: { movies, },
   }),
-  searchFailed: (): SearchFailedAction => ({ type: actionTypes.SEARCH_FAILED, }),
+  searchFailed: (errorMessage: string): SearchFailedAction => ({ type: actionTypes.SEARCH_FAILED, payload: { errorMessage, }, }),
 
   fetchMore: (): FetchMoreAction => ({ type: actionTypes.FETCH_MORE_REQUEST, }),
   fetchMoreSuccess: (movies: Movie[]): FetchMoreSuccessAction => ({

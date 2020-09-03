@@ -11,7 +11,7 @@ describe("actions tests", () => {
   });
 
   test("must create an action to notify about search fail", () => {
-    expect(actions.searchFailed()).toEqual(mockedActions.searchFailedAction);
+    expect(actions.searchFailed(mockedData.errorMessage)).toEqual(mockedActions.searchFailedAction);
   });
 
   test("must create an action to fetch more movies", () => {

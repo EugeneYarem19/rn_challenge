@@ -19,6 +19,7 @@ export const initState = {
   isFetchingMovie: false,
   isSearching: false,
   nextSearchPage: 1, // can be [1-100] (from API)
+  searchErrorMessage: "",
 };
 
 export interface Rating {
@@ -53,6 +54,7 @@ export interface State {
   isFetchingMovie: boolean;
   isSearching: boolean;
   nextSearchPage: number; // next page, which will be updated only on FETCH_MORE_SUCCESS
+  searchErrorMessage: string; // For example, "Too many results." / "Movie not found!"
 }
 
 interface IAction {
@@ -71,7 +73,11 @@ export interface SearchSuccessAction extends IAction {
   };
 }
 
-export type SearchFailedAction = IAction;
+export interface SearchFailedAction extends IAction {
+  payload: {
+    errorMessage: string;
+  };
+}
 
 export type FetchMoreAction = IAction;
 

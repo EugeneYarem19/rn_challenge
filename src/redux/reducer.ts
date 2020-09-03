@@ -1,4 +1,14 @@
-import { ActionTypes, FetchMoreSuccessAction, FetchMovieSuccessAction, SearchAction, SearchSuccessAction, State, actionTypes, initState, } from "./types";
+import {
+  ActionTypes,
+  FetchMoreSuccessAction,
+  FetchMovieSuccessAction,
+  SearchAction,
+  SearchFailedAction,
+  SearchSuccessAction,
+  State,
+  actionTypes,
+  initState,
+} from "./types";
 
 export default (state: State = initState, action: ActionTypes): State => {
   switch (action.type) {
@@ -20,6 +30,7 @@ export default (state: State = initState, action: ActionTypes): State => {
       return {
         ...state,
         isSearching: false,
+        searchErrorMessage: (action as SearchFailedAction).payload.errorMessage,
       };
 
     case actionTypes.FETCH_MORE_REQUEST:

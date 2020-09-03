@@ -10,6 +10,7 @@ export const mockedData = {
     cast: "Actors",
     ratings: [{ source: "Metacritic", value: "70/100", },],
   },
+  errorMessage: "Error",
   id: "t1",
   movies: [
     {
@@ -30,7 +31,10 @@ export const mockedActions = {
     type: actionTypes.SEARCH_SUCCESS,
     payload: { movies: mockedData.movies, },
   },
-  searchFailedAction: { type: actionTypes.SEARCH_FAILED, },
+  searchFailedAction: {
+    type: actionTypes.SEARCH_FAILED,
+    payload: { errorMessage: mockedData.errorMessage, },
+  },
 
   fetchMoreAction: { type: actionTypes.FETCH_MORE_REQUEST, },
   fetchMoreSuccessAction: {
