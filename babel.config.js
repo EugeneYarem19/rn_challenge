@@ -12,6 +12,7 @@ module.exports = {
           '@redux': './src/redux/index.ts',
           '@api': './src/api/index.ts',
           '@utils': './src/utils/index.ts',
+          '@theme': './src/theme/index.ts',
         },
       },
     ],
