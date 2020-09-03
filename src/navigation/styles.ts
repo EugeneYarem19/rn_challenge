@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
   headerStyle: {
     backgroundColor: palette.canvasColor,
     elevation: 0,
-    height: Platform.OS === "ios" ? 110 : 70,
+    height: Platform.OS === "ios" ? 120 : 75,
     shadowOpacity: 0,
   },
   headerTitleStyle: {

@@ -1,4 +1,5 @@
 import React, { useCallback, useState, } from "react";
+import { Keyboard, } from "react-native";
 import { SearchBar as SearchBarComponent, } from "react-native-elements";
 import { useDispatch, } from "react-redux";
 
@@ -19,6 +20,7 @@ export const SearchBar: React.FC = (): JSX.Element => {
       return;
     }
 
+    Keyboard.dismiss();
     dispatch(actions.findMovies(searchTitle));
   }, [dispatch, searchTitle,]);
   const updateSearchTitle = useCallback((title) => setSearchTitle(title), [setSearchTitle,]);
