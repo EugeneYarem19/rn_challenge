@@ -10,17 +10,19 @@
 import React from "react";
 import { NavigationContainer, } from "@react-navigation/native";
 import { Provider, } from "react-redux";
+import { StatusBar, } from "react-native";
 import { ThemeContext, getTheme, } from "react-native-material-ui";
 
 import { Navigation, } from "@navigation";
 import { store, } from "@redux";
-import { uiTheme, } from "@theme";
+import { uiTheme, palette, } from "@theme";
 
 const App = (): JSX.Element => {
   return (
     <Provider store={store}>
       <ThemeContext.Provider value={getTheme(uiTheme)}>
         <NavigationContainer>
+          <StatusBar backgroundColor={palette.canvasColor} barStyle="light-content" />
           <Navigation />
         </NavigationContainer>
       </ThemeContext.Provider>

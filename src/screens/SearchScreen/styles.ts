@@ -1,3 +1,10 @@
 import { StyleSheet, } from "react-native";
 
-export const styles = StyleSheet.create({ screen: { flex: 1, }, });
+import { palette, } from "@theme";
+
+export const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: palette.canvasColor,
+    flex: 1,
+  },
+});

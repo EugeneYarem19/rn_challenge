@@ -13,6 +13,7 @@ module.exports = {
           '@api': './src/api/index.ts',
           '@utils': './src/utils/index.ts',
           '@theme': './src/theme/index.ts',
+          '@components': './src/components/index.ts',
         },
       },
     ],

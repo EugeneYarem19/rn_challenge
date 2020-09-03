@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, FlatList, Text, TextInput, View, } from "react-native";
+import { FlatList, Text, View, } from "react-native";
 
 import { Movie, } from "@redux";
 
@@ -9,34 +9,16 @@ interface SearchCallback {
   (): void;
 }
 
-interface UpdateTitleCallback {
-  (title: string): void;
-}
-
 interface Props {
   fetchMore: SearchCallback;
   foundMovies: Movie[];
   isFetchingMore: boolean;
   isSearching: boolean;
-  search: SearchCallback;
   searchErrorMessage: string;
-  searchTitle: string;
-  updateSearchTitle: UpdateTitleCallback;
 }
 
-export const SearchScreen: React.FC<Props> = ({
-  fetchMore,
-  foundMovies,
-  isFetchingMore,
-  isSearching,
-  search,
-  searchErrorMessage,
-  searchTitle,
-  updateSearchTitle,
-}): JSX.Element => (
+export const SearchScreen: React.FC<Props> = ({ fetchMore, foundMovies, isFetchingMore, isSearching, searchErrorMessage, }): JSX.Element => (
   <View style={styles.screen}>
-    <TextInput value={searchTitle} onChangeText={updateSearchTitle} />
-    <Button title="Search" onPress={search} />
     {searchErrorMessage !== "" ? (
       <Text>{searchErrorMessage}</Text>
     ) : (
