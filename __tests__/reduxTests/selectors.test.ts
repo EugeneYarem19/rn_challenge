@@ -1,7 +1,7 @@
 import { initState, } from "@redux";
 import { selectors, } from "@src/redux/selectors";
 
-import { mockedData, } from "./mockedData";
+import { mockedData, } from "../mockedData";
 
 describe("selectors tests", () => {
   test("must return currentSearchTitle from the state", () => {

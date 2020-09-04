@@ -1,6 +1,7 @@
 import Reducer from "@src/redux/reducer";
 import { initState, } from "@redux";
-import { mockedActions, mockedData, } from "./mockedData";
+
+import { mockedActions, mockedData, } from "../mockedData";
 
 describe("reducer tests", () => {
   test("must return initial state", () => {

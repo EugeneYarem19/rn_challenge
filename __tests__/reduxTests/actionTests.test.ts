@@ -1,5 +1,6 @@
 import { actions, } from "@redux";
-import { mockedActions, mockedData, } from "./mockedData";
+
+import { mockedActions, mockedData, } from "../mockedData";
 
 describe("actions tests", () => {
   test("must create an action to find movies by title", () => {

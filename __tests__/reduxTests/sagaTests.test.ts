@@ -7,7 +7,7 @@ import Saga, { onFetchMore, onSearch, } from "@src/redux/saga";
 import { api, } from "@api";
 import { selectors, } from "@src/redux/selectors";
 
-import { mockedActions, mockedData, } from "./mockedData";
+import { mockedActions, mockedData, } from "../mockedData";
 
 const infoTitle = "Something has gone wrong!";
 
