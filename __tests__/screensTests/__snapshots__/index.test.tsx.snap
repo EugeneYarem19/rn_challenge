@@ -1,0 +1,479 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`screens tests SearchResultItem must renders correctly with poster 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "column-reverse",
+      "height": 200,
+      "marginBottom": 20,
+      "opacity": 1,
+      "overflow": "hidden",
+    }
+  }
+  testID="t1"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#1e3166",
+        "borderRadius": 5,
+        "flexDirection": "row",
+        "height": 165,
+        "paddingHorizontal": 16,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "http://",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 8,
+          "height": 180,
+          "marginTop": -35,
+          "width": 122,
+        }
+      }
+    />
+    <Text
+      style={
+        Object {
+          "color": "#ccc",
+          "flex": 1,
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "marginHorizontal": 16,
+          "marginVertical": 16,
+        }
+      }
+    >
+      Test
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`screens tests SearchResultItem must renders correctly without poster 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "column-reverse",
+      "height": 200,
+      "marginBottom": 20,
+      "opacity": 1,
+      "overflow": "hidden",
+    }
+  }
+  testID="t1"
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#1e3166",
+        "borderRadius": 5,
+        "flexDirection": "row",
+        "height": 165,
+        "paddingHorizontal": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#131d3d",
+          "borderRadius": 8,
+          "flexDirection": "column",
+          "height": 180,
+          "justifyContent": "center",
+          "marginTop": -35,
+          "width": 122,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        style={
+          Array [
+            Object {
+              "color": "rgba(0, 0, 0, 0.54)",
+              "fontSize": 50,
+            },
+            null,
+            Object {
+              "fontFamily": "Material Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+    <Text
+      style={
+        Object {
+          "color": "#ccc",
+          "flex": 1,
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "marginHorizontal": 16,
+          "marginVertical": 16,
+        }
+      }
+    >
+      Test
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`screens tests SearchScreen must display searchErrorMessage if error even if movies presented 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#131d3d",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#1e3166",
+        "borderRadius": 5,
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginTop": 25,
+        "minHeight": 60,
+        "padding": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#e59f2b",
+          "fontSize": 21,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Error
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`screens tests SearchScreen must render loader if searching even if searchErrorMessage and movies presented 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#131d3d",
+      "flex": 1,
+    }
+  }
+>
+  <ActivityIndicator
+    animating={true}
+    color="#e59f2b"
+    hidesWhenStopped={true}
+    size="large"
+  />
+</View>
+`;
+
+exports[`screens tests SearchScreen must render movies list 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#131d3d",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ListFooterComponent={null}
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 25,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "id": "t1",
+          "poster": "http://",
+          "title": "Test",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.3}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "paddingHorizontal": 16,
+        "paddingTop": 25,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "flex": 1,
+              "flexDirection": "column-reverse",
+              "height": 200,
+              "marginBottom": 20,
+              "opacity": 1,
+              "overflow": "hidden",
+            }
+          }
+          testID="t1"
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#1e3166",
+                "borderRadius": 5,
+                "flexDirection": "row",
+                "height": 165,
+                "paddingHorizontal": 16,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "http://",
+                }
+              }
+              style={
+                Object {
+                  "borderRadius": 8,
+                  "height": 180,
+                  "marginTop": -35,
+                  "width": 122,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "color": "#ccc",
+                  "flex": 1,
+                  "fontSize": 20,
+                  "fontWeight": "bold",
+                  "marginHorizontal": 16,
+                  "marginVertical": 16,
+                }
+              }
+            >
+              Test
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`screens tests SearchScreen must render movies list and bottom loader 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#131d3d",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ListFooterComponent={<LoadingIndicator />}
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 25,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "id": "t1",
+          "poster": "http://",
+          "title": "Test",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.3}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "paddingHorizontal": 16,
+        "paddingTop": 25,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "flex": 1,
+              "flexDirection": "column-reverse",
+              "height": 200,
+              "marginBottom": 20,
+              "opacity": 1,
+              "overflow": "hidden",
+            }
+          }
+          testID="t1"
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#1e3166",
+                "borderRadius": 5,
+                "flexDirection": "row",
+                "height": 165,
+                "paddingHorizontal": 16,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "uri": "http://",
+                }
+              }
+              style={
+                Object {
+                  "borderRadius": 8,
+                  "height": 180,
+                  "marginTop": -35,
+                  "width": 122,
+                }
+              }
+            />
+            <Text
+              style={
+                Object {
+                  "color": "#ccc",
+                  "flex": 1,
+                  "fontSize": 20,
+                  "fontWeight": "bold",
+                  "marginHorizontal": 16,
+                  "marginVertical": 16,
+                }
+              }
+            >
+              Test
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <ActivityIndicator
+          animating={true}
+          color="#e59f2b"
+          hidesWhenStopped={true}
+          size="large"
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

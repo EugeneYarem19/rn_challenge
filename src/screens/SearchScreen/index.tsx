@@ -22,7 +22,7 @@ export const SearchScreen = (): JSX.Element => {
   }, [dispatch, isFetchingMore, isThatsAll,]);
   const renderItem = useCallback(
     ({ item: { id, title, poster, }, }: { item: Movie }): JSX.Element => (
-      <SearchResultItem title={title} poster={poster} onPress={() => dispatch(actions.fetchMovie(id))} />
+      <SearchResultItem title={title} testID={id} poster={poster} onPress={() => dispatch(actions.fetchMovie(id))} />
     ),
     [dispatch,]
   );
