@@ -10,8 +10,13 @@ describe("reducer tests", () => {
   test("must handle SEARCH_REQUEST action", () => {
     expect(Reducer(undefined, mockedActions.findMoviesAction)).toEqual({
       ...initState,
+      isFetchingMore: false,
       isSearching: true,
+      isThatsAll: true,
       currentSearchTitle: mockedData.title,
+      foundMovies: [],
+      searchErrorMessage: "",
+      nextSearchPage: 2,
     });
   });
 
@@ -20,22 +25,16 @@ describe("reducer tests", () => {
       ...initState,
       isSearching: false,
       foundMovies: mockedData.movies,
+      isThatsAll: false,
     });
   });
 
-  test("must handle SEARCH_FAILED with message action", () => {
+  test("must handle SEARCH_FAILED action", () => {
     expect(Reducer(undefined, mockedActions.searchFailedAction)).toEqual({
       ...initState,
       isSearching: false,
       searchErrorMessage: mockedData.errorMessage,
-    });
-  });
-
-  test("must handle SEARCH_FAILED without message action", () => {
-    expect(Reducer(undefined, mockedActions.searchFailedNoMessageAction)).toEqual({
-      ...initState,
-      isSearching: false,
-      searchErrorMessage: "",
+      isThatsAll: true,
     });
   });
 
@@ -43,6 +42,7 @@ describe("reducer tests", () => {
     expect(Reducer(undefined, mockedActions.fetchMoreAction)).toEqual({
       ...initState,
       isFetchingMore: true,
+      searchErrorMessage: "",
     });
   });
 
@@ -51,7 +51,8 @@ describe("reducer tests", () => {
       ...initState,
       isFetchingMore: false,
       foundMovies: [...mockedData.movies, ...mockedData.movies,],
-      nextSearchPage: 2,
+      nextSearchPage: 3,
+      isThatsAll: false,
     });
   });
 
@@ -59,6 +60,7 @@ describe("reducer tests", () => {
     expect(Reducer(undefined, mockedActions.fetchMoreFailedAction)).toEqual({
       ...initState,
       isFetchingMore: false,
+      searchErrorMessage: mockedData.errorMessage,
     });
   });
 

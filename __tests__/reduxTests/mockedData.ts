@@ -22,6 +22,24 @@ export const mockedData = {
   title: title,
 };
 
+const returnNotAllMovies = {
+  payload: {
+    movies: mockedData.movies,
+    isThatsAll: false,
+  },
+};
+
+const returnAllMovies = {
+  payload: {
+    movies: mockedData.movies,
+    isThatsAll: true,
+  },
+};
+
+const returnWithError = { payload: { errorMessage: mockedData.errorMessage, }, };
+
+const returnWithEmptyError = { payload: { errorMessage: "", }, };
+
 export const mockedActions = {
   findMoviesAction: {
     type: actionTypes.SEARCH_REQUEST,
@@ -29,23 +47,32 @@ export const mockedActions = {
   },
   searchSuccessAction: {
     type: actionTypes.SEARCH_SUCCESS,
-    payload: { movies: mockedData.movies, },
+    ...returnNotAllMovies,
+  },
+  searchSuccessThatsAllAction: {
+    type: actionTypes.SEARCH_SUCCESS,
+    ...returnAllMovies,
   },
   searchFailedAction: {
     type: actionTypes.SEARCH_FAILED,
-    payload: { errorMessage: mockedData.errorMessage, },
+    ...returnWithError,
   },
   searchFailedNoMessageAction: {
     type: actionTypes.SEARCH_FAILED,
-    payload: { errorMessage: "", },
+    ...returnWithEmptyError,
   },
 
   fetchMoreAction: { type: actionTypes.FETCH_MORE_REQUEST, },
   fetchMoreSuccessAction: {
     type: actionTypes.FETCH_MORE_SUCCESS,
-    payload: { movies: mockedData.movies, },
+    ...returnNotAllMovies,
   },
-  fetchMoreFailedAction: { type: actionTypes.FETCH_MORE_FAILED, },
+  fetchMoreSuccessThatsAllAction: {
+    type: actionTypes.FETCH_MORE_SUCCESS,
+    ...returnAllMovies,
+  },
+  fetchMoreFailedAction: { type: actionTypes.FETCH_MORE_FAILED, ...returnWithError, },
+  fetchMoreFailedNoMessageAction: { type: actionTypes.FETCH_MORE_FAILED, ...returnWithEmptyError, },
 
   fetchMovieAction: {
     type: actionTypes.FETCH_MOVIE_REQUEST,
