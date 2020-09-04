@@ -1,0 +1,418 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components tests LoadingIndicator must renders correctly 1`] = `
+<ActivityIndicator
+  animating={true}
+  color="#e59f2b"
+  hidesWhenStopped={true}
+  size="large"
+/>
+`;
+
+exports[`components tests SearchBar must renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "borderBottomColor": "#000",
+      "borderBottomWidth": 0,
+      "borderTopColor": "#000",
+      "borderTopWidth": 0,
+      "borderWidth": 0,
+      "height": 45,
+      "marginRight": 15,
+      "padding": 0,
+      "width": 235,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 0,
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#303337",
+          "borderBottomWidth": 0,
+          "borderColor": "#86939e",
+          "borderRadius": 3,
+          "flexDirection": "row",
+          "minHeight": 30,
+          "overflow": "hidden",
+          "transform": Array [
+            Object {
+              "translateX": 0,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 40,
+            "justifyContent": "center",
+            "marginLeft": 8,
+            "marginVertical": 4,
+            "paddingRight": 4,
+          }
+        }
+      >
+        <View
+          testID="SearchButton"
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onLayout={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            pointerEvents="box-only"
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 2,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "center",
+                  "paddingHorizontal": 16,
+                },
+                undefined,
+                false,
+                false,
+                false,
+                Object {},
+                Object {
+                  "backgroundColor": "#e59f2b",
+                  "borderWidth": 1,
+                  "height": 35,
+                  "padding": 0,
+                  "width": 60,
+                },
+              ]
+            }
+            testID={null}
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontSize": 24,
+                  },
+                  Array [
+                    Object {
+                      "marginRight": 8,
+                    },
+                    undefined,
+                    false,
+                    false,
+                    undefined,
+                    undefined,
+                  ],
+                  Object {
+                    "fontFamily": "Material Icons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#000000",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                  },
+                  undefined,
+                  false,
+                  false,
+                  false,
+                  undefined,
+                  undefined,
+                ]
+              }
+            >
+              
+            </Text>
+            <View
+              pointerEvents="none"
+              style={
+                Array [
+                  Object {
+                    "bottom": 0,
+                    "left": 0,
+                    "overflow": "hidden",
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <View
+                pointerEvents="none"
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                    "bottom": 0,
+                    "left": 0,
+                    "opacity": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "zIndex": 1,
+                  }
+                }
+              />
+              <View
+                pointerEvents="none"
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0, 0, 0, 0.87)",
+                    "borderRadius": 100,
+                    "height": 200,
+                    "left": -100,
+                    "opacity": 0.12,
+                    "position": "absolute",
+                    "top": -100,
+                    "transform": Array [
+                      Object {
+                        "scale": 0,
+                      },
+                    ],
+                    "width": 200,
+                    "zIndex": 1,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+      <TextInput
+        allowFontScaling={true}
+        editable={true}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        placeholder="Search"
+        placeholderTextColor="#86939e"
+        platform="default"
+        rejectResponderTermination={true}
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "#86939e",
+            "flex": 1,
+            "fontSize": 18,
+            "marginLeft": 10,
+            "minHeight": 40,
+          }
+        }
+        testID="SearchBar"
+        underlineColorAndroid="transparent"
+        value=""
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 40,
+            "justifyContent": "center",
+            "marginRight": 8,
+            "marginVertical": 4,
+            "paddingRight": 4,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        />
+      </View>
+    </View>
+    <Text
+      style={
+        Object {
+          "color": "#ff190c",
+          "fontSize": 12,
+          "height": 0,
+          "margin": 0,
+          "padding": 0,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`components tests SearchButton must renders correctly 1`] = `
+<View
+  testID="SearchButton"
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onLayout={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    pointerEvents="box-only"
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderRadius": 2,
+          "flexDirection": "row",
+          "height": 36,
+          "justifyContent": "center",
+          "paddingHorizontal": 16,
+        },
+        undefined,
+        false,
+        false,
+        false,
+        Object {},
+        Object {
+          "backgroundColor": "#e59f2b",
+          "borderWidth": 1,
+          "height": 35,
+          "padding": 0,
+          "width": 60,
+        },
+      ]
+    }
+    testID={null}
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontSize": 24,
+          },
+          Array [
+            Object {
+              "marginRight": 8,
+            },
+            undefined,
+            false,
+            false,
+            undefined,
+            undefined,
+          ],
+          Object {
+            "fontFamily": "Material Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000000",
+            "fontSize": 14,
+            "fontWeight": "500",
+          },
+          undefined,
+          false,
+          false,
+          false,
+          undefined,
+          undefined,
+        ]
+      }
+    >
+      
+    </Text>
+    <View
+      pointerEvents="none"
+      style={
+        Array [
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        pointerEvents="none"
+        style={
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.87)",
+            "bottom": 0,
+            "left": 0,
+            "opacity": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+            "zIndex": 1,
+          }
+        }
+      />
+      <View
+        pointerEvents="none"
+        style={
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.87)",
+            "borderRadius": 100,
+            "height": 200,
+            "left": -100,
+            "opacity": 0.12,
+            "position": "absolute",
+            "top": -100,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 200,
+            "zIndex": 1,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

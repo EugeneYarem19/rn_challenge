@@ -1,4 +1,5 @@
 import React from "react";
+import { View, } from "react-native";
 import { Button, } from "react-native-material-ui";
 
 import { styles, } from "./styles";
@@ -12,5 +13,7 @@ interface Props {
 }
 
 export const SearchButton: React.FC<Props> = ({ onPress, }): JSX.Element => (
-  <Button icon="search" text="" onPress={onPress} style={{ container: styles.container, }} />
+  <View testID="SearchButton">
+    <Button icon="search" text="" onPress={onPress} style={{ container: styles.container, }} />
+  </View>
 );

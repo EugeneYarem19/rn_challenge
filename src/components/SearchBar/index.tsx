@@ -33,6 +33,7 @@ export const SearchBar: React.FC = (): JSX.Element => {
 
   return (
     <SearchBarComponent
+      testID="SearchBar"
       placeholder="Search"
       value={searchTitle}
       onChangeText={updateSearchTitle}
