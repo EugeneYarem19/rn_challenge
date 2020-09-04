@@ -10,6 +10,14 @@ import { styles, } from "./styles";
 
 const Stack = createStackNavigator();
 
+export type RootStackParamList = {
+  Home: undefined;
+  Movie: {
+    id: string;
+    title: string;
+  };
+};
+
 export const Navigation = (): JSX.Element => (
   <Stack.Navigator
     screenOptions={{
