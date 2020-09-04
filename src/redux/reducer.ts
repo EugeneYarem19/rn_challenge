@@ -1,5 +1,6 @@
 import {
   ActionTypes,
+  FetchMoreFailedAction,
   FetchMoreSuccessAction,
   FetchMovieSuccessAction,
   SearchAction,
@@ -15,9 +16,13 @@ export default (state: State = initState, action: ActionTypes): State => {
     case actionTypes.SEARCH_REQUEST:
       return {
         ...state,
+        isFetchingMore: false,
         isSearching: true,
+        isThatsAll: true,
         currentSearchTitle: (action as SearchAction).payload.title,
+        foundMovies: [],
         searchErrorMessage: "",
+        nextSearchPage: 2,
       };
 
     case actionTypes.SEARCH_SUCCESS:
@@ -25,12 +30,14 @@ export default (state: State = initState, action: ActionTypes): State => {
         ...state,
         isSearching: false,
         foundMovies: (action as SearchSuccessAction).payload.movies,
+        isThatsAll: (action as SearchSuccessAction).payload.isThatsAll,
       };
 
     case actionTypes.SEARCH_FAILED:
       return {
         ...state,
         isSearching: false,
+        isThatsAll: true,
         searchErrorMessage: (action as SearchFailedAction).payload.errorMessage,
       };
 
@@ -38,6 +45,7 @@ export default (state: State = initState, action: ActionTypes): State => {
       return {
         ...state,
         isFetchingMore: true,
+        searchErrorMessage: "",
       };
 
     case actionTypes.FETCH_MORE_SUCCESS:
@@ -46,12 +54,14 @@ export default (state: State = initState, action: ActionTypes): State => {
         isFetchingMore: false,
         foundMovies: [...state.foundMovies, ...(action as FetchMoreSuccessAction).payload.movies,],
         nextSearchPage: state.nextSearchPage + 1,
+        isThatsAll: (action as FetchMoreSuccessAction).payload.isThatsAll,
       };
 
     case actionTypes.FETCH_MORE_FAILED:
       return {
         ...state,
         isFetchingMore: false,
+        searchErrorMessage: (action as FetchMoreFailedAction).payload.errorMessage,
       };
 
     case actionTypes.FETCH_MOVIE_REQUEST:

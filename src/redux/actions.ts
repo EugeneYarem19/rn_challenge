@@ -18,18 +18,18 @@ export const actions = {
     type: actionTypes.SEARCH_REQUEST,
     payload: { title, },
   }),
-  searchSuccess: (movies: Movie[]): SearchSuccessAction => ({
+  searchSuccess: (movies: Movie[], isThatsAll: boolean): SearchSuccessAction => ({
     type: actionTypes.SEARCH_SUCCESS,
-    payload: { movies, },
+    payload: { movies, isThatsAll, },
   }),
   searchFailed: (errorMessage: string): SearchFailedAction => ({ type: actionTypes.SEARCH_FAILED, payload: { errorMessage, }, }),
 
   fetchMore: (): FetchMoreAction => ({ type: actionTypes.FETCH_MORE_REQUEST, }),
-  fetchMoreSuccess: (movies: Movie[]): FetchMoreSuccessAction => ({
+  fetchMoreSuccess: (movies: Movie[], isThatsAll: boolean): FetchMoreSuccessAction => ({
     type: actionTypes.FETCH_MORE_SUCCESS,
-    payload: { movies, },
+    payload: { movies, isThatsAll, },
   }),
-  fetchMoreFailed: (): FetchMoreFailedAction => ({ type: actionTypes.FETCH_MORE_FAILED, }),
+  fetchMoreFailed: (errorMessage: string): FetchMoreFailedAction => ({ type: actionTypes.FETCH_MORE_FAILED, payload: { errorMessage, }, }),
 
   fetchMovie: (id: string): FetchMovieAction => ({
     type: actionTypes.FETCH_MOVIE_REQUEST,

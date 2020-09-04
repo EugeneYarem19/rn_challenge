@@ -11,9 +11,15 @@ export const SearchScreen = (): JSX.Element => {
   const foundMovies = useSelector((state: State) => state.foundMovies);
   const isFetchingMore = useSelector((state: State) => state.isFetchingMore);
   const isSearching = useSelector((state: State) => state.isSearching);
+  const isThatsAll = useSelector((state: State) => state.isThatsAll);
   const searchErrorMessage = useSelector((state: State) => state.searchErrorMessage);
 
-  const fetchMore = useCallback(() => dispatch(actions.fetchMore()), [dispatch,]);
+  const fetchMore = useCallback(() => {
+    if (!isFetchingMore && !isThatsAll) {
+      console.warn("fetch");
+      dispatch(actions.fetchMore());
+    }
+  }, [dispatch, isFetchingMore, isThatsAll,]);
   const renderItem = useCallback(
     ({ item: { id, title, poster, }, }: { item: Movie }): JSX.Element => (
       <SearchResultItem title={title} poster={poster} onPress={() => dispatch(actions.fetchMovie(id))} />

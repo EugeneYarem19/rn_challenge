@@ -39,6 +39,9 @@ export const SearchScreen: React.FC<Props> = ({ fetchMore, foundMovies, isFetchi
         renderItem={renderItem}
         style={styles.list}
         contentContainerStyle={styles.listContentContainer}
+        onEndReached={fetchMore}
+        onEndReachedThreshold={0.3}
+        ListFooterComponent={isFetchingMore ? <LoadingIndicator /> : null}
       />
     )}
   </View>

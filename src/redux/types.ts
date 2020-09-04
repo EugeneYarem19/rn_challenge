@@ -18,7 +18,8 @@ export const initState = {
   isFetchingMore: false,
   isFetchingMovie: false,
   isSearching: false,
-  nextSearchPage: 1, // can be [1-100] (from API)
+  isThatsAll: false,
+  nextSearchPage: 2, // can be [1-100] (from API). First page will be returned by search request, so it must be equal 2 for fetch more request
   searchErrorMessage: "",
 };
 
@@ -53,12 +54,19 @@ export interface State {
   isFetchingMore: boolean;
   isFetchingMovie: boolean;
   isSearching: boolean;
-  nextSearchPage: number; // next page, which will be updated only on FETCH_MORE_SUCCESS
+  isThatsAll: boolean; // indicates that not fetched movies are on the server on our response
+  nextSearchPage: number; // next page, which will be updated only on FETCH_MORE_SUCCESS or will be set to 2 on new search
   searchErrorMessage: string; // For example, "Too many results." / "Movie not found!"
 }
 
 interface IAction {
   type: string;
+}
+
+interface IResponseFailedAction extends IAction {
+  payload: {
+    errorMessage: string;
+  };
 }
 
 export interface SearchAction extends IAction {
@@ -70,24 +78,17 @@ export interface SearchAction extends IAction {
 export interface SearchSuccessAction extends IAction {
   payload: {
     movies: Movie[] | [];
+    isThatsAll: boolean;
   };
 }
 
-export interface SearchFailedAction extends IAction {
-  payload: {
-    errorMessage: string;
-  };
-}
+export type SearchFailedAction = IResponseFailedAction;
 
 export type FetchMoreAction = IAction;
 
-export interface FetchMoreSuccessAction extends IAction {
-  payload: {
-    movies: Movie[] | [];
-  };
-}
+export type FetchMoreSuccessAction = SearchSuccessAction;
 
-export type FetchMoreFailedAction = IAction;
+export type FetchMoreFailedAction = IResponseFailedAction;
 
 export interface FetchMovieAction extends IAction {
   payload: {
