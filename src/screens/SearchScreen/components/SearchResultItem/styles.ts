@@ -2,8 +2,6 @@ import { StyleSheet, } from "react-native";
 
 import { palette, } from "@theme";
 
-const image = { borderRadius: 8, height: 180, marginTop: -35, width: 122, };
-
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -19,14 +17,7 @@ export const styles = StyleSheet.create({
     height: 165,
     paddingHorizontal: 16,
   },
-  poster: { ...image, },
-  placeholder: {
-    ...image,
-    alignItems: "center",
-    backgroundColor: palette.canvasColor,
-    flexDirection: "column",
-    justifyContent: "center",
-  },
+  poster: { marginTop: -35, },
   title: {
     color: palette.primaryTextColor,
     flex: 1,

@@ -1,6 +1,7 @@
 import React from "react";
-import { Icon, } from "react-native-material-ui";
-import { Image, Text, TouchableOpacity, View, } from "react-native";
+import { Text, TouchableOpacity, View, } from "react-native";
+
+import { Poster, } from "@components";
 
 import { styles, } from "./styles";
 
@@ -18,13 +19,7 @@ interface Props {
 export const SearchResultItem: React.FC<Props> = ({ poster, onPress, title, testID, }): JSX.Element => (
   <TouchableOpacity testID={testID} onPress={onPress} style={styles.container}>
     <View style={styles.wrapper}>
-      {poster ? (
-        <Image source={{ uri: poster, }} style={styles.poster} />
-      ) : (
-        <View style={styles.placeholder}>
-          <Icon name="wallpaper" size={50} />
-        </View>
-      )}
+      <Poster poster={poster} size="small" style={styles.poster} />
       <Text style={styles.title}>{title}</Text>
     </View>
   </TouchableOpacity>

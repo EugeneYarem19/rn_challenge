@@ -12,7 +12,7 @@ interface Props {
   onPress: SearchCallback;
 }
 
-export const SearchButton: React.FC<Props> = ({ onPress, }): JSX.Element => (
+export const SearchButton: React.FC<Props> = ({ onPress, }) => (
   <View testID="SearchButton">
     <Button icon="search" text="" onPress={onPress} style={{ container: styles.container, }} />
   </View>
