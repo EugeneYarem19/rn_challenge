@@ -28,6 +28,10 @@
         "preserveConstEnums": true,
         "strict": true,
         "target": "esnext",
+        "typeRoots": [
+            "node_modules/@types",
+            "@types"
+        ]
     },
     "exclude": [
         "android",
@@ -35,6 +39,7 @@
         "node_modules",
     ],
     "include": [
+        "@types/*",
         "src/**/*",
         "__tests__/**/*",
         ".eslintrc.js",

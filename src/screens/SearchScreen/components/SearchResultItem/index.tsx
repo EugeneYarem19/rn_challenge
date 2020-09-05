@@ -19,7 +19,7 @@ interface Props {
 export const SearchResultItem: React.FC<Props> = ({ poster, onPress, title, testID, }): JSX.Element => (
   <TouchableOpacity testID={testID} onPress={onPress} style={styles.container}>
     <View style={styles.wrapper}>
-      <Poster poster={poster} size="small" style={styles.poster} />
+      <Poster poster={poster} style={styles.poster} />
       <Text style={styles.title}>{title}</Text>
     </View>
   </TouchableOpacity>

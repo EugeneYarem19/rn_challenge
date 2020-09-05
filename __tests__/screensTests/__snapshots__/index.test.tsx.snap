@@ -34,21 +34,63 @@ exports[`screens tests SearchResultItem must renders correctly with poster 1`] =
       }
     }
   >
-    <Image
-      source={
-        Object {
-          "uri": "http://",
-        }
-      }
+    <View
       style={
         Object {
+          "backgroundColor": "#131d3d",
           "borderRadius": 8,
           "height": 180,
           "marginTop": -35,
           "width": 122,
         }
       }
-    />
+    >
+      <Image
+        onError={[Function]}
+        onLoad={[Function]}
+        onLoadEnd={[Function]}
+        onLoadStart={[Function]}
+        onProgress={[Function]}
+        resizeMode="contain"
+        source={
+          Object {
+            "uri": "http://",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "bottom": 0,
+            "justifyContent": "center",
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      >
+        <ActivityIndicator
+          animating={true}
+          color="#e59f2b"
+          hidesWhenStopped={true}
+          size="large"
+        />
+      </View>
+    </View>
     <Text
       style={
         Object {
@@ -302,21 +344,63 @@ exports[`screens tests SearchScreen must render movies list 1`] = `
               }
             }
           >
-            <Image
-              source={
-                Object {
-                  "uri": "http://",
-                }
-              }
+            <View
               style={
                 Object {
+                  "backgroundColor": "#131d3d",
                   "borderRadius": 8,
                   "height": 180,
                   "marginTop": -35,
                   "width": 122,
                 }
               }
-            />
+            >
+              <Image
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadEnd={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                resizeMode="contain"
+                source={
+                  Object {
+                    "uri": "http://",
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "bottom": 0,
+                      "left": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                    },
+                    undefined,
+                  ]
+                }
+              />
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "bottom": 0,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  }
+                }
+              >
+                <ActivityIndicator
+                  animating={true}
+                  color="#e59f2b"
+                  hidesWhenStopped={true}
+                  size="large"
+                />
+              </View>
+            </View>
             <Text
               style={
                 Object {
@@ -431,21 +515,63 @@ exports[`screens tests SearchScreen must render movies list and bottom loader 1`
               }
             }
           >
-            <Image
-              source={
-                Object {
-                  "uri": "http://",
-                }
-              }
+            <View
               style={
                 Object {
+                  "backgroundColor": "#131d3d",
                   "borderRadius": 8,
                   "height": 180,
                   "marginTop": -35,
                   "width": 122,
                 }
               }
-            />
+            >
+              <Image
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadEnd={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                resizeMode="contain"
+                source={
+                  Object {
+                    "uri": "http://",
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "bottom": 0,
+                      "left": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                    },
+                    undefined,
+                  ]
+                }
+              />
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "bottom": 0,
+                    "justifyContent": "center",
+                    "left": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  }
+                }
+              >
+                <ActivityIndicator
+                  animating={true}
+                  color="#e59f2b"
+                  hidesWhenStopped={true}
+                  size="large"
+                />
+              </View>
+            </View>
             <Text
               style={
                 Object {

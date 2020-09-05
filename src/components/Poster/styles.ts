@@ -4,14 +4,13 @@ import { palette, } from "@theme";
 
 const imageWidth = Dimensions.get("window").width - 16;
 
-const image = { borderRadius: 8, };
+const image = { backgroundColor: palette.canvasColor, borderRadius: 8, };
 
 export const styles = StyleSheet.create({
   poster: { ...image, },
   placeholder: {
     ...image,
     alignItems: "center",
-    backgroundColor: palette.canvasColor,
     flexDirection: "column",
     justifyContent: "center",
   },

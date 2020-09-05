@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useCallback, useState, } from "react";
+import ProgressImage from "react-native-image-progress";
 import { Icon, } from "react-native-material-ui";
-import { Image, View, } from "react-native";
+import { View, } from "react-native";
+
+import { LoadingIndicator, } from "@components";
 
 import { styles, } from "./styles";
 
@@ -8,11 +11,17 @@ type ImageSize = "small" | "large";
 
 interface Props {
   poster: string | undefined;
-  size: ImageSize;
+  size?: ImageSize;
+  smallOnEmptyPoster?: boolean;
+  smallOnError?: boolean;
   style?: Record<string, unknown> | null;
 }
 
-export const Poster: React.FC<Props> = ({ poster, size = "small", style, }) => {
+export const Poster: React.FC<Props> = ({ poster, size = "small", smallOnEmptyPoster = true, smallOnError = true, style, }) => {
+  const [loadError, setError,] = useState(false);
+
+  const onError = useCallback(() => setError(true), [setError,]);
+
   let sizeStyle;
   switch (size) {
     case "small":
@@ -23,10 +32,25 @@ export const Poster: React.FC<Props> = ({ poster, size = "small", style, }) => {
       break;
   }
 
-  return poster ? (
-    <Image source={{ uri: poster, }} style={{ ...styles.poster, ...sizeStyle, ...style, }} />
+  const Img = loadError ? (
+    <View style={{ ...styles.placeholder, ...(smallOnError ? styles.small : sizeStyle), ...style, }}>
+      <Icon name="wallpaper" size={50} />
+    </View>
   ) : (
-    <View style={{ ...styles.placeholder, ...sizeStyle, ...style, }}>
+    <ProgressImage
+      source={{ uri: poster, }}
+      indicator={LoadingIndicator}
+      onError={onError}
+      resizeMode="contain"
+      style={{ ...styles.poster, ...sizeStyle, ...style, }}
+      threshold={0}
+    />
+  );
+
+  return poster ? (
+    <>{Img}</>
+  ) : (
+    <View style={{ ...styles.placeholder, ...(smallOnEmptyPoster ? styles.small : sizeStyle), ...style, }}>
       <Icon name="wallpaper" size={50} />
     </View>
   );
