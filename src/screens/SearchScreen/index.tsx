@@ -1,5 +1,5 @@
 import React, { useCallback, } from "react";
-import { StackActions, } from '@react-navigation/native';
+import { StackActions, } from "@react-navigation/native";
 import { StackNavigationProp, } from "@react-navigation/stack";
 import { useDispatch, useSelector, } from "react-redux";
 
@@ -9,13 +9,13 @@ import { RootStackParamList, } from "@navigation";
 import { SearchScreen as SearchScreenComponent, } from "./SearchScreen";
 import { SearchResultItem, } from "./components";
 
-type ScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+type ScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
 
 type Props = {
   navigation: ScreenNavigationProp;
 };
 
-export const SearchScreen: React.FC<Props> = ({navigation,}): JSX.Element => {
+export const SearchScreen: React.FC<Props> = ({ navigation, }): JSX.Element => {
   const dispatch = useDispatch();
   const foundMovies = useSelector((state: State) => state.foundMovies);
   const isFetchingMore = useSelector((state: State) => state.isFetchingMore);
@@ -32,11 +32,15 @@ export const SearchScreen: React.FC<Props> = ({navigation,}): JSX.Element => {
 
   const renderItem = useCallback(
     ({ item: { id, title, poster, }, }: { item: Movie }): JSX.Element => (
-      <SearchResultItem title={title} testID={id} poster={poster} onPress={() => {
-        navigation.dispatch(StackActions.push('Movie', { id, title, }))
-        dispatch(actions.fetchMovie(id));
-      }
-      } />
+      <SearchResultItem
+        title={title}
+        testID={id}
+        poster={poster}
+        onPress={() => {
+          navigation.dispatch(StackActions.push("Movie", { id, title, }));
+          dispatch(actions.fetchMovie(id));
+        }}
+      />
     ),
     [dispatch, navigation,]
   );

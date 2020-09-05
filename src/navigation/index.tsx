@@ -28,6 +28,14 @@ export const Navigation = (): JSX.Element => (
     }}
   >
     <Stack.Screen name="Home" component={SearchScreen} options={{ headerRight: () => <SearchBar />, }} />
-    <Stack.Screen name="Movie" component={MovieScreen} />
+    <Stack.Screen
+      name="Movie"
+      component={MovieScreen}
+      options={{
+        headerLeftContainerStyle: styles.movieLeftContainer,
+        headerTitleContainerStyle: styles.movieScreenTitleContainer,
+        title: "",
+      }}
+    />
   </Stack.Navigator>
 );

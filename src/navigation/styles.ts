@@ -14,4 +14,6 @@ export const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
   },
+  movieLeftContainer: { marginLeft: 10, },
+  movieScreenTitleContainer: { marginLeft: 20, },
 });
