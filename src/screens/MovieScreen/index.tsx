@@ -15,10 +15,11 @@ type Props = {
 
 export const MovieScreen: React.FC<Props> = ({ route, }): JSX.Element => {
   const foundMovies = useSelector((state: State) => state.foundMovies);
+  const isFetchingMovie = useSelector((state: State) => state.isFetchingMovie);
 
   const { id, title, } = route.params;
 
   const movie = foundMovies.find((item) => item.id === id) as Movie;
 
-  return <MovieScreenComponent {...movie} defaultTitle={title} />;
+  return <MovieScreenComponent {...movie} defaultTitle={title} isFetchingMovie={isFetchingMovie} />;
 };
