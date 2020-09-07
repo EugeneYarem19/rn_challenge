@@ -4,21 +4,16 @@ import { createStackNavigator, } from "@react-navigation/stack";
 import { MovieScreen, SearchScreen, } from "@screens";
 import { SearchBar, } from "@components";
 
+import { StackNavigationNames, } from "@src/constants";
 import { palette, } from "@theme";
 
 import { styles, } from "./styles";
 
 const Stack = createStackNavigator();
 
-export type RootStackParamList = {
-  Home: undefined;
-  Movie: {
-    id: string;
-    title: string;
-  };
-};
+export * from "./types";
 
-export const Navigation = (): JSX.Element => (
+export const Navigation: React.FC = () => (
   <Stack.Navigator
     screenOptions={{
       headerStyle: styles.headerStyle,
@@ -27,9 +22,9 @@ export const Navigation = (): JSX.Element => (
       headerTitleStyle: styles.headerTitleStyle,
     }}
   >
-    <Stack.Screen name="Home" component={SearchScreen} options={{ headerRight: () => <SearchBar />, }} />
+    <Stack.Screen name={StackNavigationNames.home} component={SearchScreen} options={{ headerRight: () => <SearchBar />, }} />
     <Stack.Screen
-      name="Movie"
+      name={StackNavigationNames.movie}
       component={MovieScreen}
       options={{
         headerLeftContainerStyle: styles.movieLeftContainer,
