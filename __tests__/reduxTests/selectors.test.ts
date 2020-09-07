@@ -1,5 +1,5 @@
-import { initState, } from "@redux";
-import { selectors, } from "@src/redux/selectors";
+import { initState, } from "@src/redux/movies";
+import { selectors, } from "@src/redux/movies/selectors";
 
 import { mockedData, } from "../mockedData";
 

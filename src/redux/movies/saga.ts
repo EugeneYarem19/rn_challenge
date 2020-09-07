@@ -1,28 +1,26 @@
-import { CallEffect, ForkEffect, PutEffect, call, put, select, takeLatest, SelectEffect, } from "redux-saga/effects";
+import { CallEffect, ForkEffect, PutEffect, SelectEffect, call, put, select, takeLatest, } from "redux-saga/effects";
 
-import { ErrorResponse, IResponse, SearchResponse, SearchOkResponse, api, MovieResponse, MovieOkResponse, } from "@api";
+import { ErrorResponse, IResponse, SearchResponse, SearchOkResponse, MovieResponse, MovieOkResponse, api, } from "@api";
 import { displayInfo, networkErrorHandler, } from "@utils";
 
 import {
-  FetchMoreSuccessAction,
   FetchMoreFailedAction,
+  FetchMoreSuccessAction,
   FetchMovieAction,
-  IAction,
-  Movie,
-  SearchAction,
-  SearchSuccessAction,
-  SearchFailedAction,
-  actionTypes,
   FetchMovieFailedAction,
   FetchMovieSuccessAction,
+  IAction,
+  Movie,
   MovieDetailing,
-} from "./types";
-import { actions, } from "./actions";
+  ResponseHandlerReturnType,
+  SearchAction,
+  SearchFailedAction,
+  SearchSuccessAction,
+} from "../types";
+import { actionTypes, actions, } from "./actions";
 import { selectors, } from "./selectors";
 
 const infoTitle = "Something has gone wrong!";
-
-type ResponseHandlerReturnType = Generator;
 
 function* responseHandler<T extends IResponse, U extends IAction>(
   response: T,

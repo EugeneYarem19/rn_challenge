@@ -1,28 +1,3 @@
-export const actionTypes = {
-  SEARCH_REQUEST: "SEARCH_REQUEST",
-  SEARCH_SUCCESS: "SEARCH_SUCCESS",
-  SEARCH_FAILED: "SEARCH_FAILED",
-
-  FETCH_MORE_REQUEST: "FETCH_MORE_REQUEST",
-  FETCH_MORE_SUCCESS: "FETCH_MORE_SUCCESS",
-  FETCH_MORE_FAILED: "FETCH_MORE_FAILED",
-
-  FETCH_MOVIE_REQUEST: "FETCH_MOVIE_REQUEST",
-  FETCH_MOVIE_SUCCESS: "FETCH_MOVIE_SUCCESS",
-  FETCH_MOVIE_FAILED: "FETCH_MOVIE_FAILED",
-};
-
-export const initState = {
-  currentSearchTitle: "",
-  foundMovies: [],
-  isFetchingMore: false,
-  isFetchingMovie: false,
-  isSearching: false,
-  isThatsAll: false,
-  nextSearchPage: 2, // can be [1-100] (from API). First page will be returned by search request, so it must be equal 2 for fetch more request
-  searchErrorMessage: "",
-};
-
 export interface Rating {
   source: string;
   value: string;
@@ -115,3 +90,5 @@ export type ActionTypes =
   | SearchAction
   | SearchSuccessAction
   | SearchFailedAction;
+
+export type ResponseHandlerReturnType = Generator;

@@ -1,3 +1,3 @@
 export { default as store, } from "./store";
-export { actions, } from "./actions";
+export { actions, } from "./movies";
 export * from "./types";

@@ -5,10 +5,10 @@ import { CallEffect, call, select, } from "redux-saga/effects";
 import { SagaType, expectSaga, } from "redux-saga-test-plan";
 import { throwError, } from "redux-saga-test-plan/providers";
 
-import Saga, { onFetchMore, onFetchMovie, onSearch, } from "@src/redux/saga";
+import Saga, { onFetchMore, onFetchMovie, onSearch, } from "@src/redux/movies/saga";
 import { IAction, } from "@redux";
 import { api, } from "@api";
-import { selectors, } from "@src/redux/selectors";
+import { selectors, } from "@src/redux/movies/selectors";
 
 import { mockedActions, mockedData, } from "../mockedData";
 

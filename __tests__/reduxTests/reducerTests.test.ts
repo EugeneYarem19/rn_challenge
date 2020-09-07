@@ -1,5 +1,4 @@
-import Reducer from "@src/redux/reducer";
-import { initState, } from "@redux";
+import { initState, moviesReducer as Reducer, } from "@src/redux/movies";
 
 import { mockedActions, mockedData, } from "../mockedData";
 

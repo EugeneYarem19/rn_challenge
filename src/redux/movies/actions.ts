@@ -10,8 +10,21 @@ import {
   SearchAction,
   SearchFailedAction,
   SearchSuccessAction,
-  actionTypes,
-} from "./types";
+} from "../types";
+
+export const actionTypes = {
+  SEARCH_REQUEST: "SEARCH_REQUEST",
+  SEARCH_SUCCESS: "SEARCH_SUCCESS",
+  SEARCH_FAILED: "SEARCH_FAILED",
+
+  FETCH_MORE_REQUEST: "FETCH_MORE_REQUEST",
+  FETCH_MORE_SUCCESS: "FETCH_MORE_SUCCESS",
+  FETCH_MORE_FAILED: "FETCH_MORE_FAILED",
+
+  FETCH_MOVIE_REQUEST: "FETCH_MOVIE_REQUEST",
+  FETCH_MOVIE_SUCCESS: "FETCH_MOVIE_SUCCESS",
+  FETCH_MOVIE_FAILED: "FETCH_MOVIE_FAILED",
+};
 
 export const actions = {
   findMovies: (title: string): SearchAction => ({

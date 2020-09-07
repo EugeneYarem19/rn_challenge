@@ -1,4 +1,4 @@
-import { State, Movie, } from "./types";
+import { State, Movie, } from "../types";
 
 export const selectors = {
   getCurrentSearchTitle: (state: State): string => state.currentSearchTitle,

@@ -1,4 +1,4 @@
-import { actionTypes, } from "@redux";
+import { actionTypes, } from "@src/redux/movies/actions";
 
 const title = "Test";
 

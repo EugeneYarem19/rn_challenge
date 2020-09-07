@@ -7,11 +7,21 @@ import {
   SearchFailedAction,
   SearchSuccessAction,
   State,
-  actionTypes,
-  initState,
-} from "./types";
+} from "../types";
+import { actionTypes, } from "./actions";
 
-export default (state: State = initState, action: ActionTypes): State => {
+export const initState: State = {
+  currentSearchTitle: "",
+  foundMovies: [],
+  isFetchingMore: false,
+  isFetchingMovie: false,
+  isSearching: false,
+  isThatsAll: false,
+  nextSearchPage: 2, // can be [1-100] (from API). First page will be returned by search request, so it must be equal 2 for fetch more request
+  searchErrorMessage: "",
+};
+
+export default (state = initState, action: ActionTypes): State => {
   switch (action.type) {
     case actionTypes.SEARCH_REQUEST:
       return {
