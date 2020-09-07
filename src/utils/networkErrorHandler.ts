@@ -1,4 +1,4 @@
-import { SearchResponse, } from "@api";
+import { IResponse, } from "@api";
 
 /*
 Constant        VALUE               Status Code   Explanation
@@ -21,7 +21,7 @@ const errors = {
   CANCEL_ERROR: "CANCEL_ERROR",
 };
 
-export const networkErrorHandler = (response: SearchResponse): string => {
+export const networkErrorHandler = (response: IResponse): string => {
   const { problem, } = response;
   let errorString;
 

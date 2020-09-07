@@ -59,7 +59,7 @@ export interface State {
   searchErrorMessage: string; // For example, "Too many results." / "Movie not found!"
 }
 
-interface IAction {
+export interface IAction {
   type: string;
 }
 
