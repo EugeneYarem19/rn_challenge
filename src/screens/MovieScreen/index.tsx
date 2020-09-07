@@ -2,7 +2,7 @@ import React from "react";
 import { RouteProp, } from "@react-navigation/native";
 import { useSelector, } from "react-redux";
 
-import { Movie, State, } from "@redux";
+import { Movie, MovieState, } from "@redux";
 import { RootStackParamList, } from "@navigation";
 
 import { MovieScreen as MovieScreenComponent, } from "./MovieScreen";
@@ -14,8 +14,8 @@ type Props = {
 };
 
 export const MovieScreen: React.FC<Props> = ({ route, }): JSX.Element => {
-  const foundMovies = useSelector((state: State) => state.foundMovies);
-  const isFetchingMovie = useSelector((state: State) => state.isFetchingMovie);
+  const foundMovies = useSelector((state: MovieState) => state.foundMovies);
+  const isFetchingMovie = useSelector((state: MovieState) => state.isFetchingMovie);
 
   const { id, title, } = route.params;
 

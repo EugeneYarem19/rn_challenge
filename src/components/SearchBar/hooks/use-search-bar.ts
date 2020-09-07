@@ -2,17 +2,18 @@ import { Keyboard, } from "react-native";
 import { useCallback, useState, } from "react";
 import { useDispatch, useSelector, } from "react-redux";
 
-import { State, actions, } from "@redux";
+import { MovieState, moviesActions, } from "@redux";
 import { displayInfo, } from "@utils";
+import { errors, } from "@src/constants";
 
 export const useSearchBar = () => {
   const dispatch = useDispatch();
-  const currentSearchTitle = useSelector((state: State) => state.currentSearchTitle);
+  const currentSearchTitle = useSelector((state: MovieState) => state.currentSearchTitle);
   const [searchTitle, setSearchTitle,] = useState<string>("");
 
   const search = useCallback(() => {
     if (!searchTitle || !searchTitle.length || !searchTitle.trim()) {
-      displayInfo("Please, provide movie title to search");
+      displayInfo(errors.emptyTitle);
       return;
     }
     if (searchTitle === currentSearchTitle) {
@@ -20,7 +21,7 @@ export const useSearchBar = () => {
     }
 
     Keyboard.dismiss();
-    dispatch(actions.findMovies(searchTitle));
+    dispatch(moviesActions.findMovies(searchTitle));
   }, [dispatch, currentSearchTitle, searchTitle,]);
 
   const updateSearchTitle = useCallback((title) => setSearchTitle(title), [setSearchTitle,]);

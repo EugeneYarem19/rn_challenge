@@ -1,4 +1,5 @@
 import { IResponse, } from "@api";
+import { errors as errorsMessages, } from "@src/constants";
 
 /*
 Constant        VALUE               Status Code   Explanation
@@ -27,13 +28,13 @@ export const networkErrorHandler = (response: IResponse): string => {
 
   switch (problem) {
     case errors.NETWORK_ERROR:
-      errorString = "Please check internet connection";
+      errorString = errorsMessages.networkError;
       break;
     case errors.CLIENT_ERROR:
-      errorString = "Bad request";
+      errorString = errorsMessages.clientError;
       break;
     case errors.SERVER_ERROR:
-      errorString = "Server error";
+      errorString = errorsMessages.serverError;
       break;
 
     default:

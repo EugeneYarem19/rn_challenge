@@ -23,7 +23,7 @@ export interface MovieDetailing {
   ratings: Rating[];
 }
 
-export interface State {
+export interface MovieState {
   currentSearchTitle: string;
   foundMovies: Movie[];
   isFetchingMore: boolean;
@@ -58,11 +58,8 @@ export interface SearchSuccessAction extends IAction {
 }
 
 export type SearchFailedAction = IResponseFailedAction;
-
 export type FetchMoreAction = IAction;
-
 export type FetchMoreSuccessAction = SearchSuccessAction;
-
 export type FetchMoreFailedAction = IResponseFailedAction;
 
 export interface FetchMovieAction extends IAction {

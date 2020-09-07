@@ -6,11 +6,11 @@ import {
   SearchAction,
   SearchFailedAction,
   SearchSuccessAction,
-  State,
+  MovieState,
 } from "../types";
 import { actionTypes, } from "./actions";
 
-export const initState: State = {
+export const initState: MovieState = {
   currentSearchTitle: "",
   foundMovies: [],
   isFetchingMore: false,
@@ -21,7 +21,7 @@ export const initState: State = {
   searchErrorMessage: "",
 };
 
-export default (state = initState, action: ActionTypes): State => {
+export default (state = initState, action: ActionTypes): MovieState => {
   switch (action.type) {
     case actionTypes.SEARCH_REQUEST:
       return {

@@ -1,7 +1,7 @@
-import { State, Movie, } from "../types";
+import { Movie, MovieState, } from "../types";
 
 export const selectors = {
-  getCurrentSearchTitle: (state: State): string => state.currentSearchTitle,
-  getMovies: (state: State): Movie[] => state.foundMovies,
-  getNextSearchPage: (state: State): number => state.nextSearchPage,
+  getCurrentSearchTitle: (state: MovieState): string => state.currentSearchTitle,
+  getMovies: (state: MovieState): Movie[] => state.foundMovies,
+  getNextSearchPage: (state: MovieState): number => state.nextSearchPage,
 };
