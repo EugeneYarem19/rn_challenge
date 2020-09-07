@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-global-assign */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /**
  * @format

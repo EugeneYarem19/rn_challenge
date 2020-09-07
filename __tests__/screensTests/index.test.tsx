@@ -17,7 +17,6 @@ jest.mock("@react-navigation/native", () => ({
 }));
 
 const mockStore = configureStore([]);
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const props: any = {};
 
 describe("screens tests", () => {

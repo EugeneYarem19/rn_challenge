@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Alert, } from "react-native";
 import { CallEffect, call, select, } from "redux-saga/effects";
 import { SagaType, expectSaga, } from "redux-saga-test-plan";
@@ -7,7 +6,7 @@ import { throwError, } from "redux-saga-test-plan/providers";
 
 import Saga, { onFetchMore, onFetchMovie, onSearch, } from "@src/redux/movies/saga";
 import { IAction, } from "@redux";
-import { api, } from "@api";
+import { fetchMoreMovie, fetchMovie, getSearchResult, } from "@api";
 import { selectors, } from "@src/redux/movies/selectors";
 
 import { mockedActions, mockedData, } from "../mockedData";
@@ -139,7 +138,7 @@ describe("saga tests", () => {
     test("must call onSearch saga on SEARCH_REQUEST", () => {
       return expectSaga(Saga)
         .dispatch(mockedActions.findMoviesAction)
-        .call.like({ fn: api.search, }) // call of onSearch saga can be tested by first call effect in onSearch saga
+        .call.like({ fn: getSearchResult, }) // call of onSearch saga can be tested by first call effect in onSearch saga
         .run();
     });
 
@@ -159,11 +158,17 @@ describe("saga tests", () => {
   });
 
   describe("onSearch saga tests", () => {
-    testOnApiInstanceError(onSearch, mockedActions.findMoviesAction, call(api.search, mockedData.title), mockedActions.searchFailedNoMessageAction, "SEARCH");
-    testOnThatsAllSuccessResponse(onSearch, mockedActions.findMoviesAction, call(api.search, mockedData.title), mockedActions.searchSuccessThatsAllAction, "SEARCH");
-    testOnThatsNotAllSuccessResponse(onSearch, mockedActions.findMoviesAction, call(api.search, mockedData.title), mockedActions.searchSuccessAction, "SEARCH");
-    testOnFalseResponse(onSearch, mockedActions.findMoviesAction, call(api.search, mockedData.title), mockedActions.searchFailedAction, "SEARCH");
-    testOnResponseOkFalse(onSearch, mockedActions.findMoviesAction, call(api.search, mockedData.title), mockedActions.searchFailedNoMessageAction, "SEARCH");
+    testOnApiInstanceError(onSearch, mockedActions.findMoviesAction, call(getSearchResult, mockedData.title), mockedActions.searchFailedNoMessageAction, "SEARCH");
+    testOnThatsAllSuccessResponse(
+      onSearch,
+      mockedActions.findMoviesAction,
+      call(getSearchResult, mockedData.title),
+      mockedActions.searchSuccessThatsAllAction,
+      "SEARCH"
+    );
+    testOnThatsNotAllSuccessResponse(onSearch, mockedActions.findMoviesAction, call(getSearchResult, mockedData.title), mockedActions.searchSuccessAction, "SEARCH");
+    testOnFalseResponse(onSearch, mockedActions.findMoviesAction, call(getSearchResult, mockedData.title), mockedActions.searchFailedAction, "SEARCH");
+    testOnResponseOkFalse(onSearch, mockedActions.findMoviesAction, call(getSearchResult, mockedData.title), mockedActions.searchFailedNoMessageAction, "SEARCH");
   });
 
   describe("onFetchMore saga tests", () => {
@@ -173,14 +178,14 @@ describe("saga tests", () => {
           [select(selectors.getCurrentSearchTitle), mockedData.title,],
           [select(selectors.getNextSearchPage), 2,],
         ])
-        .call(api.fetchMore, mockedData.title, 2)
+        .call(fetchMoreMovie, mockedData.title, 2)
         .run();
     });
 
     testOnApiInstanceError(
       onFetchMore,
       mockedActions.fetchMoreAction,
-      call(api.fetchMore, mockedData.title, 2),
+      call(fetchMoreMovie, mockedData.title, 2),
       mockedActions.fetchMoreFailedNoMessageAction,
       "FETCH_MORE",
       [
@@ -192,7 +197,7 @@ describe("saga tests", () => {
     testOnThatsAllSuccessResponse(
       onFetchMore,
       mockedActions.fetchMoreAction,
-      call(api.fetchMore, mockedData.title, 2),
+      call(fetchMoreMovie, mockedData.title, 2),
       mockedActions.fetchMoreSuccessThatsAllAction,
       "FETCH_MORE",
       [
@@ -204,7 +209,7 @@ describe("saga tests", () => {
     testOnThatsNotAllSuccessResponse(
       onFetchMore,
       mockedActions.fetchMoreAction,
-      call(api.fetchMore, mockedData.title, 2),
+      call(fetchMoreMovie, mockedData.title, 2),
       mockedActions.fetchMoreSuccessAction,
       "FETCH_MORE",
       [
@@ -213,7 +218,7 @@ describe("saga tests", () => {
       ]
     );
 
-    testOnFalseResponse(onFetchMore, mockedActions.fetchMoreAction, call(api.fetchMore, mockedData.title, 2), mockedActions.fetchMoreFailedAction, "FETCH_MORE", [
+    testOnFalseResponse(onFetchMore, mockedActions.fetchMoreAction, call(fetchMoreMovie, mockedData.title, 2), mockedActions.fetchMoreFailedAction, "FETCH_MORE", [
       [select(selectors.getCurrentSearchTitle), mockedData.title,],
       [select(selectors.getNextSearchPage), 2,],
     ]);
@@ -221,7 +226,7 @@ describe("saga tests", () => {
     testOnResponseOkFalse(
       onFetchMore,
       mockedActions.fetchMoreAction,
-      call(api.fetchMore, mockedData.title, 2),
+      call(fetchMoreMovie, mockedData.title, 2),
       mockedActions.fetchMoreFailedNoMessageAction,
       "FETCH_MORE",
       [
@@ -239,7 +244,7 @@ describe("saga tests", () => {
         .run();
     });
 
-    testOnApiInstanceError(onFetchMovie, mockedActions.fetchMovieAction, call(api.fetchMovie, mockedData.id), mockedActions.fetchMovieFailedAction, "FETCH_MOVIE", [
+    testOnApiInstanceError(onFetchMovie, mockedActions.fetchMovieAction, call(fetchMovie, mockedData.id), mockedActions.fetchMovieFailedAction, "FETCH_MOVIE", [
       [select(selectors.getMovies), mockedData.movies,],
     ]);
 
@@ -248,7 +253,7 @@ describe("saga tests", () => {
         .provide([
           [select(selectors.getMovies), mockedData.movies,],
           [
-            call(api.fetchMovie, mockedData.id),
+            call(fetchMovie, mockedData.id),
             {
               ok: true,
               data: {
@@ -276,7 +281,7 @@ describe("saga tests", () => {
         .provide([
           [select(selectors.getMovies), mockedData.movies,],
           [
-            call(api.fetchMovie, mockedData.id),
+            call(fetchMovie, mockedData.id),
             {
               ok: true,
               data: {
@@ -294,7 +299,7 @@ describe("saga tests", () => {
         );
     });
 
-    testOnResponseOkFalse(onFetchMovie, mockedActions.fetchMovieAction, call(api.fetchMovie, mockedData.id), mockedActions.fetchMovieFailedAction, "FETCH_MOVIE", [
+    testOnResponseOkFalse(onFetchMovie, mockedActions.fetchMovieAction, call(fetchMovie, mockedData.id), mockedActions.fetchMovieFailedAction, "FETCH_MOVIE", [
       [select(selectors.getMovies), mockedData.movies,],
     ]);
   });

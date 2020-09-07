@@ -1,6 +1,6 @@
 import { CallEffect, ForkEffect, PutEffect, SelectEffect, call, put, select, takeLatest, } from "redux-saga/effects";
 
-import { SearchResponse, MovieResponse, api, } from "@api";
+import { SearchResponse, MovieResponse, fetchMoreMovie, fetchMovie, getSearchResult, } from "@api";
 import { displayInfo, responseHandler, onFetchMovieFailed, onFetchMovieSuccess, onSearchFailed, onSearchSuccess, } from "@utils";
 
 import { FetchMoreFailedAction, FetchMovieAction, FetchMovieFailedAction, Movie, ResponseHandlerReturnType, SearchAction, SearchFailedAction, } from "../types";
@@ -13,7 +13,7 @@ export function* onFetchMore(): Generator<SelectEffect | CallEffect | ResponseHa
     const title = (yield select(selectors.getCurrentSearchTitle)) as string;
     const nextPage = (yield select(selectors.getNextSearchPage)) as number;
 
-    const response = (yield call(api.fetchMore, title, nextPage)) as SearchResponse;
+    const response = (yield call(fetchMoreMovie, title, nextPage)) as SearchResponse;
 
     console.warn("fetch more response", response);
 
@@ -27,7 +27,7 @@ export function* onFetchMore(): Generator<SelectEffect | CallEffect | ResponseHa
 
 export function* onSearch(action: SearchAction): Generator<CallEffect | ResponseHandlerReturnType | PutEffect<SearchFailedAction>> {
   try {
-    const response = (yield call(api.search, action.payload.title)) as SearchResponse;
+    const response = (yield call(getSearchResult, action.payload.title)) as SearchResponse;
 
     console.warn("search response", response);
 
@@ -53,7 +53,7 @@ export function* onFetchMovie(action: FetchMovieAction): Generator<SelectEffect 
       return;
     }
 
-    const response = (yield call(api.fetchMovie, id)) as MovieResponse;
+    const response = (yield call(fetchMovie, id)) as MovieResponse;
 
     console.warn("fetch movie response", response);
 
