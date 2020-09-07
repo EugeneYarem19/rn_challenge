@@ -1,36 +1,12 @@
-import React, { useCallback, useState, } from "react";
-import { Keyboard, } from "react-native";
+import React from "react";
 import { SearchBar as SearchBarComponent, } from "react-native-elements";
-import { useDispatch, useSelector, } from "react-redux";
-
-import { State, actions, } from "@redux";
-import { displayInfo, } from "@utils";
 
 import { SearchButton, } from "./components";
 import { styles, } from "./styles";
+import { useSearchBar, } from "./hooks";
 
-export const SearchBar: React.FC = (): JSX.Element => {
-  const dispatch = useDispatch();
-  const currentSearchTitle = useSelector((state: State) => state.currentSearchTitle);
-
-  const [searchTitle, setSearchTitle,] = useState("");
-
-  const search = useCallback(() => {
-    if (!searchTitle || !searchTitle.length || !searchTitle.trim()) {
-      displayInfo("Please, provide movie title to search");
-      return;
-    }
-
-    if (searchTitle === currentSearchTitle) {
-      return;
-    }
-
-    Keyboard.dismiss();
-    console.warn("search");
-    dispatch(actions.findMovies(searchTitle));
-  }, [dispatch, currentSearchTitle, searchTitle,]);
-  const updateSearchTitle = useCallback((title) => setSearchTitle(title), [setSearchTitle,]);
-  const clearSearchTitle = useCallback(() => setSearchTitle(""), [setSearchTitle,]);
+export const SearchBar: React.FC = () => {
+  const { searchTitle, clearSearchTitle, search, updateSearchTitle, } = useSearchBar();
 
   return (
     <SearchBarComponent

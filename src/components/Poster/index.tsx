@@ -1,26 +1,16 @@
-import React, { useCallback, useState, } from "react";
+import React from "react";
 import ProgressImage from "react-native-image-progress";
 import { Icon, } from "react-native-material-ui";
 import { View, } from "react-native";
 
 import { LoadingIndicator, } from "@components";
 
+import { IPoster, } from "./types";
 import { styles, } from "./styles";
+import { usePoster, } from "./hooks";
 
-type ImageSize = "small" | "large";
-
-interface Props {
-  poster: string | undefined;
-  size?: ImageSize;
-  smallOnEmptyPoster?: boolean;
-  smallOnError?: boolean;
-  style?: Record<string, unknown> | null;
-}
-
-export const Poster: React.FC<Props> = ({ poster, size = "small", smallOnEmptyPoster = true, smallOnError = true, style, }) => {
-  const [loadError, setError,] = useState(false);
-
-  const onError = useCallback(() => setError(true), [setError,]);
+export const Poster: React.FC<IPoster> = ({ poster, size = "small", smallOnEmptyPoster = true, smallOnError = true, style, }) => {
+  const { loadError, onError, } = usePoster();
 
   let sizeStyle;
   switch (size) {

@@ -3,7 +3,6 @@ import { Dimensions, StyleSheet, } from "react-native";
 import { palette, } from "@theme";
 
 const imageWidth = Dimensions.get("window").width - 16;
-
 const image = { backgroundColor: palette.canvasColor, borderRadius: 8, };
 
 export const styles = StyleSheet.create({
