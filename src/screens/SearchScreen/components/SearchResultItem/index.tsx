@@ -3,20 +3,10 @@ import { Text, TouchableOpacity, View, } from "react-native";
 
 import { Poster, } from "@components";
 
+import { ISearchResultItem, } from "./types";
 import { styles, } from "./styles";
 
-interface Callback {
-  (): void;
-}
-
-interface Props {
-  poster: string | undefined;
-  onPress: Callback;
-  title: string;
-  testID: string;
-}
-
-export const SearchResultItem: React.FC<Props> = ({ poster, onPress, title, testID, }): JSX.Element => (
+export const SearchResultItem: React.FC<ISearchResultItem> = ({ poster, onPress, title, testID, }) => (
   <TouchableOpacity testID={testID} onPress={onPress} style={styles.container}>
     <View style={styles.wrapper}>
       <Poster poster={poster} style={styles.poster} />

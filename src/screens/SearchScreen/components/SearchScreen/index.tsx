@@ -3,28 +3,10 @@ import { FlatList, Text, View, } from "react-native";
 
 import { LoadingIndicator, } from "@components";
 
-import { Movie, } from "@redux";
-
+import { ISearchScreen, } from "./types";
 import { styles, } from "./styles";
 
-interface SearchCallback {
-  (): void;
-}
-
-interface RenderItemCallback {
-  ({ item, }: { item: Movie }): JSX.Element;
-}
-
-interface Props {
-  fetchMore: SearchCallback;
-  foundMovies: Movie[];
-  isFetchingMore: boolean;
-  isSearching: boolean;
-  renderItem: RenderItemCallback;
-  searchErrorMessage: string;
-}
-
-export const SearchScreen: React.FC<Props> = ({ fetchMore, foundMovies, isFetchingMore, isSearching, renderItem, searchErrorMessage, }): JSX.Element => (
+export const SearchScreen: React.FC<ISearchScreen> = ({ fetchMore, foundMovies, isFetchingMore, isSearching, renderItem, searchErrorMessage, }): JSX.Element => (
   <View style={styles.screen}>
     {isSearching ? (
       <LoadingIndicator />

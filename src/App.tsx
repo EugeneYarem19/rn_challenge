@@ -15,7 +15,7 @@ import { Navigation, } from "@navigation";
 import { store, } from "@redux";
 import { uiTheme, palette, } from "@theme";
 
-const App = (): JSX.Element => {
+const App: React.FC = () => {
   return (
     <Provider store={store}>
       <ThemeContext.Provider value={getTheme(uiTheme)}>
