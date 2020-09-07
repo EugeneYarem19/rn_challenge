@@ -16,11 +16,12 @@ export const SearchBar: React.FC = (): JSX.Element => {
   const [searchTitle, setSearchTitle,] = useState("");
 
   const search = useCallback(() => {
-    if (searchTitle === currentSearchTitle) {
-      return;
-    }
     if (!searchTitle || !searchTitle.length || !searchTitle.trim()) {
       displayInfo("Please, provide movie title to search");
+      return;
+    }
+
+    if (searchTitle === currentSearchTitle) {
       return;
     }
 
@@ -38,7 +39,7 @@ export const SearchBar: React.FC = (): JSX.Element => {
       value={searchTitle}
       onChangeText={updateSearchTitle}
       onClear={clearSearchTitle}
-      searchIcon={() => <SearchButton onPress={search} />}
+      searchIcon={<SearchButton onPress={search} />}
       containerStyle={styles.container}
     />
   );

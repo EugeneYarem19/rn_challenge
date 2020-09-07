@@ -14,7 +14,7 @@ export const Rating: React.FC<Props> = ({ ratings, }) => (
     <Text style={styles.key}>Ratings: </Text>
     <View>
       {ratings.map(({ source, value, }) => (
-        <View>
+        <View key={source}>
           <Text style={styles.source}>{source}</Text>
           <Text style={styles.value}>{value}</Text>
         </View>
