@@ -1,73 +1,12 @@
 import { CallEffect, ForkEffect, PutEffect, SelectEffect, call, put, select, takeLatest, } from "redux-saga/effects";
 
-import { ErrorResponse, IResponse, SearchResponse, SearchOkResponse, MovieResponse, MovieOkResponse, api, } from "@api";
-import { displayInfo, networkErrorHandler, } from "@utils";
+import { SearchResponse, MovieResponse, api, } from "@api";
+import { displayInfo, responseHandler, onFetchMovieFailed, onFetchMovieSuccess, onSearchFailed, onSearchSuccess, } from "@utils";
 
-import {
-  FetchMoreFailedAction,
-  FetchMoreSuccessAction,
-  FetchMovieAction,
-  FetchMovieFailedAction,
-  FetchMovieSuccessAction,
-  IAction,
-  Movie,
-  MovieDetailing,
-  ResponseHandlerReturnType,
-  SearchAction,
-  SearchFailedAction,
-  SearchSuccessAction,
-} from "../types";
+import { FetchMoreFailedAction, FetchMovieAction, FetchMovieFailedAction, Movie, ResponseHandlerReturnType, SearchAction, SearchFailedAction, } from "../types";
 import { actionTypes, actions, } from "./actions";
+import { errors, } from "@src/constants";
 import { selectors, } from "./selectors";
-
-const infoTitle = "Something has gone wrong!";
-
-function* responseHandler<T extends IResponse, U extends IAction>(
-  response: T,
-  onSuccess: (apiResponse: T) => Generator,
-  onFailed: (apiResponse: T) => Generator,
-  failed: (errorMessage: string) => U
-): ResponseHandlerReturnType {
-  try {
-    if (response.ok) {
-      if (response.data?.Response === "True") {
-        yield onSuccess(response);
-      } else {
-        yield onFailed(response);
-      }
-    } else {
-      displayInfo(networkErrorHandler(response), infoTitle);
-      yield put(failed(""));
-    }
-  } catch (error) {
-    console.warn("responseHandler error=", error);
-    displayInfo((error as Error).message, infoTitle);
-    yield put(failed(""));
-  }
-}
-
-const onSearchSuccess = (success: typeof actions.searchSuccess) => {
-  return function* (response: SearchResponse): Generator<SelectEffect | PutEffect<SearchSuccessAction | FetchMoreSuccessAction>> {
-    const movies = (response.data as SearchOkResponse).Search.map((item) => ({
-      id: item.imdbID,
-      poster: item?.Poster || "",
-      title: item.Title,
-    }));
-
-    const currentMovies = (yield select(selectors.getMovies)) as Movie[];
-    const isThatsAll = currentMovies.length + movies.length === Number.parseInt((response.data as SearchOkResponse).totalResults, 10);
-
-    yield put(success(movies, isThatsAll));
-    console.warn("OK");
-  };
-};
-
-const onSearchFailed = (failed: typeof actions.searchFailed) => {
-  return function* (response: SearchResponse): Generator<PutEffect<SearchFailedAction | FetchMoreFailedAction>> {
-    yield put(failed((response.data as ErrorResponse).Error || ""));
-    console.warn("BAD");
-  };
-};
 
 export function* onFetchMore(): Generator<SelectEffect | CallEffect | ResponseHandlerReturnType | PutEffect<FetchMoreFailedAction>> {
   try {
@@ -81,7 +20,7 @@ export function* onFetchMore(): Generator<SelectEffect | CallEffect | ResponseHa
     yield responseHandler(response, onSearchSuccess(actions.fetchMoreSuccess), onSearchFailed(actions.fetchMoreFailed), actions.fetchMoreFailed);
   } catch (error) {
     console.warn("onFetchMore error=", error);
-    displayInfo((error as Error).message, infoTitle);
+    displayInfo((error as Error).message, errors.infoTitle);
     yield put(actions.fetchMoreFailed(""));
   }
 }
@@ -95,39 +34,10 @@ export function* onSearch(action: SearchAction): Generator<CallEffect | Response
     yield responseHandler(response, onSearchSuccess(actions.searchSuccess), onSearchFailed(actions.searchFailed), actions.searchFailed);
   } catch (error) {
     console.warn("onSearch error=", error);
-    displayInfo((error as Error).message, infoTitle);
+    displayInfo((error as Error).message, errors.infoTitle);
     yield put(actions.searchFailed(""));
   }
 }
-
-const onFetchMovieSuccess = (id: string, success: typeof actions.fetchMovieSuccess) => {
-  return function* (response: MovieResponse): Generator<PutEffect<FetchMovieSuccessAction>> {
-    const movie = response.data as MovieOkResponse;
-
-    const detailed: MovieDetailing = {
-      genre: movie.Genre,
-      director: movie.Director,
-      fullPlot: movie.Plot,
-      cast: movie.Actors,
-      ratings: movie.Ratings.map((item) => ({
-        source: item.Source,
-        value: item.Value,
-      })),
-    };
-
-    yield put(success(id, detailed));
-    console.warn("OK");
-  };
-};
-
-const onFetchMovieFailed = (failed: typeof actions.fetchMovieFailed) => {
-  return function* (response: MovieResponse): Generator<PutEffect<FetchMovieFailedAction>> {
-    yield put(failed());
-    // TODO: message move to constants
-    displayInfo("We cannot fetch detailed information about this movie. Error: \n" + (response.data as ErrorResponse).Error, infoTitle);
-    console.warn("BAD");
-  };
-};
 
 export function* onFetchMovie(action: FetchMovieAction): Generator<SelectEffect | CallEffect | ResponseHandlerReturnType | PutEffect<FetchMovieFailedAction>> {
   try {
@@ -150,7 +60,7 @@ export function* onFetchMovie(action: FetchMovieAction): Generator<SelectEffect 
     yield responseHandler(response, onFetchMovieSuccess(id, actions.fetchMovieSuccess), onFetchMovieFailed(actions.fetchMovieFailed), actions.fetchMovieFailed);
   } catch (error) {
     console.warn("onFetchMovie error=", error);
-    displayInfo((error as Error).message, infoTitle);
+    displayInfo((error as Error).message, errors.infoTitle);
     yield put(actions.fetchMovieFailed());
   }
 }
