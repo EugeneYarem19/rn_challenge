@@ -112,7 +112,10 @@ describe("screens tests", () => {
 
     const { getByTestId, } = render(
       <Provider store={store}>
-        <SearchScreen navigation={navigation} />
+        {
+          // @ts-ignore
+          <SearchScreen navigation={navigation} />
+        }
       </Provider>
     );
 

@@ -84,6 +84,7 @@ module.exports = {
     "import/first": 0,
     "@typescript-eslint/unbound-method": "warn",
     "@typescript-eslint/no-unsafe-assignment": "warn",
+    "@typescript-eslint/ban-ts-comment": "warn",
     /*'import/extensions': [
       'error',
       'ignorePackages',
