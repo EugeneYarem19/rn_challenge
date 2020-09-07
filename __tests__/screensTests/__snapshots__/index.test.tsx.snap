@@ -1,5 +1,476 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`screens tests DetailsItem must renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "marginTop": 15,
+      "width": "100%",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#ccc",
+        "fontSize": 21,
+        "fontWeight": "bold",
+        "marginRight": 5,
+      }
+    }
+  >
+    title: 
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#ccc",
+        "flex": 1,
+        "fontSize": 20,
+      }
+    }
+  >
+    value
+  </Text>
+</View>
+`;
+
+exports[`screens tests MovieScreen must display loading indicator 1`] = `
+<RCTScrollView
+  bounces={false}
+  contentContainerStyle={
+    Object {
+      "alignItems": "center",
+    }
+  }
+  style={
+    Object {
+      "backgroundColor": "#131d3d",
+      "flex": 1,
+      "paddingHorizontal": 16,
+    }
+  }
+>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#ccc",
+          "fontFamily": "Arial",
+          "fontSize": 32,
+          "fontWeight": "bold",
+          "textAlign": "center",
+        }
+      }
+    >
+      Title
+    </Text>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#1e3166",
+          "borderColor": "#1e3166",
+          "borderRadius": 8,
+          "borderWidth": 4,
+          "height": 1027.6,
+          "marginBottom": 15,
+          "marginTop": 15,
+          "maxHeight": 443,
+          "maxWidth": 300,
+          "width": 734,
+        }
+      }
+    >
+      <Image
+        onError={[Function]}
+        onLoad={[Function]}
+        onLoadEnd={[Function]}
+        onLoadStart={[Function]}
+        onProgress={[Function]}
+        resizeMode="contain"
+        source={
+          Object {
+            "uri": "http://",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "bottom": 0,
+            "justifyContent": "center",
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      >
+        <ActivityIndicator
+          animating={true}
+          color="#e59f2b"
+          hidesWhenStopped={true}
+          size="large"
+        />
+      </View>
+    </View>
+    <ActivityIndicator
+      animating={true}
+      color="#e59f2b"
+      hidesWhenStopped={true}
+      size="large"
+    />
+  </View>
+</RCTScrollView>
+`;
+
+exports[`screens tests MovieScreen must renders correctly with all props 1`] = `
+<RCTScrollView
+  bounces={false}
+  contentContainerStyle={
+    Object {
+      "alignItems": "center",
+    }
+  }
+  style={
+    Object {
+      "backgroundColor": "#131d3d",
+      "flex": 1,
+      "paddingHorizontal": 16,
+    }
+  }
+>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#ccc",
+          "fontFamily": "Arial",
+          "fontSize": 32,
+          "fontWeight": "bold",
+          "textAlign": "center",
+        }
+      }
+    >
+      Title
+    </Text>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#1e3166",
+          "borderColor": "#1e3166",
+          "borderRadius": 8,
+          "borderWidth": 4,
+          "height": 1027.6,
+          "marginBottom": 15,
+          "marginTop": 15,
+          "maxHeight": 443,
+          "maxWidth": 300,
+          "width": 734,
+        }
+      }
+    >
+      <Image
+        onError={[Function]}
+        onLoad={[Function]}
+        onLoadEnd={[Function]}
+        onLoadStart={[Function]}
+        onProgress={[Function]}
+        resizeMode="contain"
+        source={
+          Object {
+            "uri": "http://",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "bottom": 0,
+            "justifyContent": "center",
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      >
+        <ActivityIndicator
+          animating={true}
+          color="#e59f2b"
+          hidesWhenStopped={true}
+          size="large"
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 15,
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ccc",
+            "fontSize": 21,
+            "fontWeight": "bold",
+            "marginRight": 5,
+          }
+        }
+      >
+        Ratings: 
+      </Text>
+      <View>
+        <View>
+          <Text
+            style={
+              Object {
+                "color": "#ccc",
+                "fontSize": 20,
+                "marginRight": 5,
+                "textDecorationLine": "underline",
+              }
+            }
+          >
+            source
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ccc",
+                "flex": 1,
+                "fontSize": 21,
+                "fontWeight": "bold",
+                "marginVertical": 3,
+              }
+            }
+          >
+            value
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 15,
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ccc",
+            "fontSize": 21,
+            "fontWeight": "bold",
+            "marginRight": 5,
+          }
+        }
+      >
+        Genre: 
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ccc",
+            "flex": 1,
+            "fontSize": 20,
+          }
+        }
+      >
+        Genre
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 15,
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ccc",
+            "fontSize": 21,
+            "fontWeight": "bold",
+            "marginRight": 5,
+          }
+        }
+      >
+        Director: 
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ccc",
+            "flex": 1,
+            "fontSize": 20,
+          }
+        }
+      >
+        Director
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 15,
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ccc",
+            "fontSize": 21,
+            "fontWeight": "bold",
+            "marginRight": 5,
+          }
+        }
+      >
+        Cast: 
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ccc",
+            "flex": 1,
+            "fontSize": 20,
+          }
+        }
+      >
+        Cast
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "marginTop": 15,
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ccc",
+            "fontSize": 21,
+            "fontWeight": "bold",
+            "marginRight": 5,
+          }
+        }
+      >
+        Plot: 
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ccc",
+            "flex": 1,
+            "fontSize": 20,
+          }
+        }
+      >
+        Plot
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`screens tests Rating must renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+      "marginTop": 15,
+      "width": "100%",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#ccc",
+        "fontSize": 21,
+        "fontWeight": "bold",
+        "marginRight": 5,
+      }
+    }
+  >
+    Ratings: 
+  </Text>
+  <View>
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#ccc",
+            "fontSize": 20,
+            "marginRight": 5,
+            "textDecorationLine": "underline",
+          }
+        }
+      >
+        source
+      </Text>
+      <Text
+        style={
+          Object {
+            "color": "#ccc",
+            "flex": 1,
+            "fontSize": 21,
+            "fontWeight": "bold",
+            "marginVertical": 3,
+          }
+        }
+      >
+        value
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`screens tests SearchResultItem must renders correctly with poster 1`] = `
 <View
   accessible={true}

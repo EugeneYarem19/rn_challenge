@@ -82,6 +82,8 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "import/first": 0,
+    "@typescript-eslint/unbound-method": "warn",
+    "@typescript-eslint/no-unsafe-assignment": "warn",
     /*'import/extensions': [
       'error',
       'ignorePackages',
