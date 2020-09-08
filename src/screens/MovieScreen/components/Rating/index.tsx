@@ -1,15 +1,10 @@
 import React from "react";
 import { Text, View, } from "react-native";
 
-import { Rating as IRating, } from "@redux";
-
+import { IRating, } from "./types";
 import { styles, } from "./styles";
 
-interface Props {
-  ratings: IRating[];
-}
-
-export const Rating: React.FC<Props> = ({ ratings, }) => (
+export const Rating: React.FC<IRating> = ({ ratings, }) => (
   <View style={styles.container}>
     <Text style={styles.key}>Ratings: </Text>
     <View>

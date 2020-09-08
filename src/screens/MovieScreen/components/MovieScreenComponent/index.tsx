@@ -3,17 +3,21 @@ import { ScrollView, Text, } from "react-native";
 
 import { LoadingIndicator, Poster, } from "@components";
 
-import { Movie, } from "@redux";
-
-import { DetailsItem, Rating, } from "./components";
+import { DetailsItem, Rating, } from "../";
+import { IMovieScreenComponent, } from "./types";
 import { styles, } from "./styles";
 
-interface Props extends Movie {
-  defaultTitle: string;
-  isFetchingMovie: boolean;
-}
-
-export const MovieScreen: React.FC<Props> = ({ defaultTitle, isFetchingMovie, poster, title, genre, director, fullPlot, cast, ratings, }) => {
+export const MovieScreenComponent: React.FC<IMovieScreenComponent> = ({
+  defaultTitle,
+  isFetchingMovie,
+  poster,
+  title,
+  genre,
+  director,
+  fullPlot,
+  cast,
+  ratings,
+}) => {
   const Content = (
     <>
       {ratings && <Rating ratings={ratings} />}
