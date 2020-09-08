@@ -71,9 +71,10 @@ exports[`MovieScreen tests MovieScreen must display loading indicator 1`] = `
         Array [
           Object {
             "backgroundColor": "#131d3d",
-            "borderRadius": 8,
+            "overflow": "hidden",
           },
           Object {
+            "borderRadius": 20,
             "height": 1027.6,
             "maxHeight": 443,
             "maxWidth": 300,
@@ -180,9 +181,10 @@ exports[`MovieScreen tests MovieScreen must renders correctly with all props 1`]
         Array [
           Object {
             "backgroundColor": "#131d3d",
-            "borderRadius": 8,
+            "overflow": "hidden",
           },
           Object {
+            "borderRadius": 20,
             "height": 1027.6,
             "maxHeight": 443,
             "maxWidth": 300,

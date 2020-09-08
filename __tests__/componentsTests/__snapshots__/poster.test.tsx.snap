@@ -6,9 +6,10 @@ exports[`Poster tests Poster must renders correctly with set poster 1`] = `
     Array [
       Object {
         "backgroundColor": "#131d3d",
-        "borderRadius": 8,
+        "overflow": "hidden",
       },
       Object {
+        "borderRadius": 8,
         "height": 180,
         "width": 122,
       },
@@ -70,9 +71,10 @@ exports[`Poster tests Poster must renders correctly with set poster and size = '
     Array [
       Object {
         "backgroundColor": "#131d3d",
-        "borderRadius": 8,
+        "overflow": "hidden",
       },
       Object {
+        "borderRadius": 20,
         "height": 1027.6,
         "maxHeight": 443,
         "maxWidth": 300,
@@ -136,9 +138,10 @@ exports[`Poster tests Poster must renders correctly with set poster and size = '
     Array [
       Object {
         "backgroundColor": "#131d3d",
-        "borderRadius": 8,
+        "overflow": "hidden",
       },
       Object {
+        "borderRadius": 8,
         "height": 180,
         "width": 122,
       },
@@ -201,11 +204,11 @@ exports[`Poster tests Poster must renders correctly without set poster 1`] = `
       Object {
         "alignItems": "center",
         "backgroundColor": "#131d3d",
-        "borderRadius": 8,
         "flexDirection": "column",
         "justifyContent": "center",
       },
       Object {
+        "borderRadius": 8,
         "height": 180,
         "width": 122,
       },
@@ -243,11 +246,11 @@ exports[`Poster tests Poster must renders correctly without set poster and size 
       Object {
         "alignItems": "center",
         "backgroundColor": "#131d3d",
-        "borderRadius": 8,
         "flexDirection": "column",
         "justifyContent": "center",
       },
       Object {
+        "borderRadius": 8,
         "height": 180,
         "width": 122,
       },
@@ -285,11 +288,11 @@ exports[`Poster tests Poster must renders correctly without set poster and size 
       Object {
         "alignItems": "center",
         "backgroundColor": "#131d3d",
-        "borderRadius": 8,
         "flexDirection": "column",
         "justifyContent": "center",
       },
       Object {
+        "borderRadius": 20,
         "height": 1027.6,
         "maxHeight": 443,
         "maxWidth": 300,
@@ -329,11 +332,11 @@ exports[`Poster tests Poster must renders correctly without set poster and size 
       Object {
         "alignItems": "center",
         "backgroundColor": "#131d3d",
-        "borderRadius": 8,
         "flexDirection": "column",
         "justifyContent": "center",
       },
       Object {
+        "borderRadius": 8,
         "height": 180,
         "width": 122,
       },
@@ -371,11 +374,11 @@ exports[`Poster tests Poster must renders correctly without set poster and size 
       Object {
         "alignItems": "center",
         "backgroundColor": "#131d3d",
-        "borderRadius": 8,
         "flexDirection": "column",
         "justifyContent": "center",
       },
       Object {
+        "borderRadius": 8,
         "height": 180,
         "width": 122,
       },
