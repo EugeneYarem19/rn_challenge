@@ -43,7 +43,6 @@ export function* responseHandler<T extends IResponse, U extends IAction>(
       yield put(failed(""));
     }
   } catch (error) {
-    console.warn("responseHandler error=", error);
     displayInfo((error as Error).message, errors.infoTitle);
     yield put(failed(""));
   }
@@ -52,7 +51,6 @@ export const onFetchMovieFailed = (failed: typeof moviesActions.fetchMovieFailed
   return function* (response: MovieResponse): Generator<PutEffect<FetchMovieFailedAction>> {
     yield put(failed());
     displayInfo(errors.infoDescription + (response.data as ErrorResponse).Error, errors.infoTitle);
-    console.warn("BAD");
   };
 };
 
@@ -75,7 +73,6 @@ export const onFetchMovieSuccess = (
     };
 
     yield put(success(id, detailed));
-    console.warn("OK");
   };
 };
 
@@ -84,7 +81,6 @@ export const onSearchFailed = (failed: typeof moviesActions.searchFailed) => {
     response: SearchResponse
   ): Generator<PutEffect<SearchFailedAction | FetchMoreFailedAction>> {
     yield put(failed((response.data as ErrorResponse).Error || ""));
-    console.warn("BAD");
   };
 };
 
@@ -104,6 +100,5 @@ export const onSearchSuccess = (success: typeof moviesActions.searchSuccess) => 
       Number.parseInt((response.data as SearchOkResponse).totalResults, 10);
 
     yield put(success(movies, isThatsAll));
-    console.warn("OK");
   };
 };

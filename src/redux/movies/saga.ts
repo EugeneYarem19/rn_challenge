@@ -41,8 +41,6 @@ export function* onFetchMore(): Generator<
 
     const response = (yield call(fetchMoreMovie, title, nextPage)) as SearchResponse;
 
-    console.warn("fetch more response", response);
-
     yield responseHandler(
       response,
       onSearchSuccess(actions.fetchMoreSuccess),
@@ -50,7 +48,6 @@ export function* onFetchMore(): Generator<
       actions.fetchMoreFailed
     );
   } catch (error) {
-    console.warn("onFetchMore error=", error);
     displayInfo((error as Error).message, errors.infoTitle);
     yield put(actions.fetchMoreFailed(""));
   }
@@ -62,8 +59,6 @@ export function* onSearch(
   try {
     const response = (yield call(getSearchResult, action.payload.title)) as SearchResponse;
 
-    console.warn("search response", response);
-
     yield responseHandler(
       response,
       onSearchSuccess(actions.searchSuccess),
@@ -71,7 +66,6 @@ export function* onSearch(
       actions.searchFailed
     );
   } catch (error) {
-    console.warn("onSearch error=", error);
     displayInfo((error as Error).message, errors.infoTitle);
     yield put(actions.searchFailed(""));
   }
@@ -90,14 +84,11 @@ export function* onFetchMovie(
 
     // this is condition to cancel requesting the movie if it is requested before
     if (requestedMovie?.cast) {
-      console.warn("request was canceled, because this movie was fetched earlier");
       yield put(actions.fetchMovieFailed());
       return;
     }
 
     const response = (yield call(fetchMovie, id)) as MovieResponse;
-
-    console.warn("fetch movie response", response);
 
     yield responseHandler(
       response,
@@ -106,7 +97,6 @@ export function* onFetchMovie(
       actions.fetchMovieFailed
     );
   } catch (error) {
-    console.warn("onFetchMovie error=", error);
     displayInfo((error as Error).message, errors.infoTitle);
     yield put(actions.fetchMovieFailed());
   }

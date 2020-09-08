@@ -17,7 +17,6 @@ export const useSearchScreen = (navigation: ScreenNavigationProp | null) => {
 
   const fetchMore = useCallback(() => {
     if (!isFetchingMore && !isThatsAll) {
-      console.warn("fetch");
       dispatch(moviesActions.fetchMore());
     }
   }, [dispatch, isFetchingMore, isThatsAll,]);
