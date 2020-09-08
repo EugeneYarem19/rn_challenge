@@ -8,15 +8,21 @@ describe("Movies actions tests", () => {
   });
 
   test("must create an action to notify about search success with isThatsAll = true", () => {
-    expect(moviesActions.searchSuccess(mockedData.movies, true)).toEqual(mockedActions.searchSuccessThatsAllAction);
+    expect(moviesActions.searchSuccess(mockedData.movies, true)).toEqual(
+      mockedActions.searchSuccessThatsAllAction
+    );
   });
 
   test("must create an action to notify about search success with isThatsAll = false", () => {
-    expect(moviesActions.searchSuccess(mockedData.movies, false)).toEqual(mockedActions.searchSuccessAction);
+    expect(moviesActions.searchSuccess(mockedData.movies, false)).toEqual(
+      mockedActions.searchSuccessAction
+    );
   });
 
   test("must create an action to notify about search fail with message", () => {
-    expect(moviesActions.searchFailed(mockedData.errorMessage)).toEqual(mockedActions.searchFailedAction);
+    expect(moviesActions.searchFailed(mockedData.errorMessage)).toEqual(
+      mockedActions.searchFailedAction
+    );
   });
 
   test("must create an action to notify about search fail without message", () => {
@@ -28,15 +34,21 @@ describe("Movies actions tests", () => {
   });
 
   test("must create an action to notify about fetching new movies success with isThatsAll = true", () => {
-    expect(moviesActions.fetchMoreSuccess(mockedData.movies, true)).toEqual(mockedActions.fetchMoreSuccessThatsAllAction);
+    expect(moviesActions.fetchMoreSuccess(mockedData.movies, true)).toEqual(
+      mockedActions.fetchMoreSuccessThatsAllAction
+    );
   });
 
   test("must create an action to notify about fetching new movies success with isThatsAll = false", () => {
-    expect(moviesActions.fetchMoreSuccess(mockedData.movies, false)).toEqual(mockedActions.fetchMoreSuccessAction);
+    expect(moviesActions.fetchMoreSuccess(mockedData.movies, false)).toEqual(
+      mockedActions.fetchMoreSuccessAction
+    );
   });
 
   test("must create an action to notify about fetching new movies fail with message", () => {
-    expect(moviesActions.fetchMoreFailed(mockedData.errorMessage)).toEqual(mockedActions.fetchMoreFailedAction);
+    expect(moviesActions.fetchMoreFailed(mockedData.errorMessage)).toEqual(
+      mockedActions.fetchMoreFailedAction
+    );
   });
 
   test("must create an action to notify about fetching new movies fail without message", () => {
@@ -48,7 +60,9 @@ describe("Movies actions tests", () => {
   });
 
   test("must create an action to notify about fetching detailed information success", () => {
-    expect(moviesActions.fetchMovieSuccess(mockedData.id, mockedData.detailedInfo)).toEqual(mockedActions.fetchMovieSuccessAction);
+    expect(moviesActions.fetchMovieSuccess(mockedData.id, mockedData.detailedInfo)).toEqual(
+      mockedActions.fetchMovieSuccessAction
+    );
   });
 
   test("must create an action to notify about fetching detailed information fail", () => {

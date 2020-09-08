@@ -1,6 +1,13 @@
 import { PutEffect, SelectEffect, put, select, } from "redux-saga/effects";
 
-import { ErrorResponse, IResponse, MovieResponse, MovieOkResponse, SearchResponse, SearchOkResponse, } from "@api";
+import {
+  ErrorResponse,
+  IResponse,
+  MovieResponse,
+  MovieOkResponse,
+  SearchResponse,
+  SearchOkResponse,
+} from "@api";
 import {
   FetchMoreFailedAction,
   FetchMoreSuccessAction,
@@ -49,7 +56,10 @@ export const onFetchMovieFailed = (failed: typeof moviesActions.fetchMovieFailed
   };
 };
 
-export const onFetchMovieSuccess = (id: string, success: typeof moviesActions.fetchMovieSuccess) => {
+export const onFetchMovieSuccess = (
+  id: string,
+  success: typeof moviesActions.fetchMovieSuccess
+) => {
   return function* (response: MovieResponse): Generator<PutEffect<FetchMovieSuccessAction>> {
     const movie = response.data as MovieOkResponse;
 
@@ -70,14 +80,18 @@ export const onFetchMovieSuccess = (id: string, success: typeof moviesActions.fe
 };
 
 export const onSearchFailed = (failed: typeof moviesActions.searchFailed) => {
-  return function* (response: SearchResponse): Generator<PutEffect<SearchFailedAction | FetchMoreFailedAction>> {
+  return function* (
+    response: SearchResponse
+  ): Generator<PutEffect<SearchFailedAction | FetchMoreFailedAction>> {
     yield put(failed((response.data as ErrorResponse).Error || ""));
     console.warn("BAD");
   };
 };
 
 export const onSearchSuccess = (success: typeof moviesActions.searchSuccess) => {
-  return function* (response: SearchResponse): Generator<SelectEffect | PutEffect<SearchSuccessAction | FetchMoreSuccessAction>> {
+  return function* (
+    response: SearchResponse
+  ): Generator<SelectEffect | PutEffect<SearchSuccessAction | FetchMoreSuccessAction>> {
     const movies = (response.data as SearchOkResponse).Search.map((item) => ({
       id: item.imdbID,
       poster: item?.Poster || "",
@@ -85,7 +99,9 @@ export const onSearchSuccess = (success: typeof moviesActions.searchSuccess) => 
     }));
 
     const currentMovies = (yield select(selectors.getMovies)) as Movie[];
-    const isThatsAll = currentMovies.length + movies.length === Number.parseInt((response.data as SearchOkResponse).totalResults, 10);
+    const isThatsAll =
+      currentMovies.length + movies.length ===
+      Number.parseInt((response.data as SearchOkResponse).totalResults, 10);
 
     yield put(success(movies, isThatsAll));
     console.warn("OK");

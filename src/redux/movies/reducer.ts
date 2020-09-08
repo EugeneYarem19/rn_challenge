@@ -86,7 +86,9 @@ export default (state = initState, action: ActionTypes): MovieState => {
       return {
         ...state,
         isFetchingMovie: false,
-        foundMovies: state.foundMovies.map((item) => (item.id === id ? { ...item, ...restPayload.detailedInfo, } : item)),
+        foundMovies: state.foundMovies.map((item) =>
+          item.id === id ? { ...item, ...restPayload.detailedInfo, } : item
+        ),
       };
     }
 

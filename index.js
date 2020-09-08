@@ -12,6 +12,8 @@ import App from "@src/App";
 import { name as appName, } from "./app.json";
 
 // needed for network debug
-XMLHttpRequest = GLOBAL.originalXMLHttpRequest ? GLOBAL.originalXMLHttpRequest : GLOBAL.XMLHttpRequest;
+XMLHttpRequest = GLOBAL.originalXMLHttpRequest
+  ? GLOBAL.originalXMLHttpRequest
+  : GLOBAL.XMLHttpRequest;
 
 AppRegistry.registerComponent(appName, () => App);

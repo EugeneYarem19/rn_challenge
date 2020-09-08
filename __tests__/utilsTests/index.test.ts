@@ -21,13 +21,17 @@ describe("utils tests", () => {
   });
 
   test("networkErrorHandler must return 'Bad request' on CLIENT_ERROR", () => {
-    // @ts-ignore
-    expect(networkErrorHandler({ problem: "CLIENT_ERROR", ok: false, originalError: null, })).toEqual("Bad request");
+    expect(
+      // @ts-ignore
+      networkErrorHandler({ problem: "CLIENT_ERROR", ok: false, })
+    ).toEqual("Bad request");
   });
 
   test("networkErrorHandler must return 'Please check internet connection' on NETWORK_ERROR", () => {
     // @ts-ignore
-    expect(networkErrorHandler({ problem: "NETWORK_ERROR", ok: false, })).toEqual("Please check internet connection");
+    expect(networkErrorHandler({ problem: "NETWORK_ERROR", ok: false, })).toEqual(
+      "Please check internet connection"
+    );
   });
 
   test("networkErrorHandler must return 'Server error' on SERVER_ERROR", () => {

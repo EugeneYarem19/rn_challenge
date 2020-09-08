@@ -67,10 +67,17 @@ describe("Movies saga tests", () => {
       ]
     );
 
-    testOnFalseResponse(onFetchMore, mockedActions.fetchMoreAction, call(fetchMoreMovie, mockedData.title, 2), mockedActions.fetchMoreFailedAction, "FETCH_MORE", [
-      [select(selectors.getCurrentSearchTitle), mockedData.title,],
-      [select(selectors.getNextSearchPage), 2,],
-    ]);
+    testOnFalseResponse(
+      onFetchMore,
+      mockedActions.fetchMoreAction,
+      call(fetchMoreMovie, mockedData.title, 2),
+      mockedActions.fetchMoreFailedAction,
+      "FETCH_MORE",
+      [
+        [select(selectors.getCurrentSearchTitle), mockedData.title,],
+        [select(selectors.getNextSearchPage), 2,],
+      ]
+    );
 
     testOnResponseOkFalse(
       onFetchMore,

@@ -47,7 +47,12 @@ describe("Movies reducer tests", () => {
   });
 
   test("must handle FETCH_MORE_SUCCESS action", () => {
-    expect(Reducer({ ...initState, foundMovies: mockedData.movies, }, mockedActions.fetchMoreSuccessAction)).toEqual({
+    expect(
+      Reducer(
+        { ...initState, foundMovies: mockedData.movies, },
+        mockedActions.fetchMoreSuccessAction
+      )
+    ).toEqual({
       ...initState,
       isFetchingMore: false,
       foundMovies: [...mockedData.movies, ...mockedData.movies,],
@@ -76,7 +81,12 @@ describe("Movies reducer tests", () => {
     const resultFoundMovies = [{}, secondMovie,];
     resultFoundMovies[0] = { ...mockedData.movies[0], ...mockedData.detailedInfo, };
 
-    expect(Reducer({ ...initState, foundMovies: [...mockedData.movies, secondMovie,], }, mockedActions.fetchMovieSuccessAction)).toEqual({
+    expect(
+      Reducer(
+        { ...initState, foundMovies: [...mockedData.movies, secondMovie,], },
+        mockedActions.fetchMovieSuccessAction
+      )
+    ).toEqual({
       ...initState,
       isFetchingMovie: false,
       foundMovies: resultFoundMovies,

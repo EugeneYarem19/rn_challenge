@@ -22,7 +22,11 @@ export const Navigation: React.FC = () => (
       headerTitleStyle: styles.headerTitleStyle,
     }}
   >
-    <Stack.Screen name={StackNavigationNames.home} component={SearchScreen} options={{ headerRight: () => <SearchBar />, }} />
+    <Stack.Screen
+      name={StackNavigationNames.home}
+      component={SearchScreen}
+      options={{ headerRight: () => <SearchBar />, }}
+    />
     <Stack.Screen
       name={StackNavigationNames.movie}
       component={MovieScreen}

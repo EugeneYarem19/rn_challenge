@@ -2,7 +2,7 @@ module.exports = {
   bracketSpacing: true,
   // jsxBracketSameLine: true,
   useTabs: false, // использовать табы? нет (я за пробелы)
-  printWidth: 165, // длина строки - 80
+  printWidth: 100, // длина строки - 80
   tabWidth: 2, // длина "таба" - 2 пробела
   singleQuote: false, // использовать одинарные кавычки - да!
   trailingComma: "es5", // запятая в последней строке - да

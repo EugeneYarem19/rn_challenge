@@ -21,14 +21,21 @@ describe("Movies saga tests", () => {
   describe("onFetchMovie saga tests", () => {
     test("must cancel request because this film has been already requested", () => {
       return expectSaga(onFetchMovie, mockedActions.fetchMovieAction)
-        .provide([[select(selectors.getMovies), { ...mockedData.movies, ...mockedData.detailedInfo, },],])
+        .provide([
+          [select(selectors.getMovies), { ...mockedData.movies, ...mockedData.detailedInfo, },],
+        ])
         .put(mockedActions.fetchMovieFailedAction)
         .run();
     });
 
-    testOnApiInstanceError(onFetchMovie, mockedActions.fetchMovieAction, call(fetchMovie, mockedData.id), mockedActions.fetchMovieFailedAction, "FETCH_MOVIE", [
-      [select(selectors.getMovies), mockedData.movies,],
-    ]);
+    testOnApiInstanceError(
+      onFetchMovie,
+      mockedActions.fetchMovieAction,
+      call(fetchMovie, mockedData.id),
+      mockedActions.fetchMovieFailedAction,
+      "FETCH_MOVIE",
+      [[select(selectors.getMovies), mockedData.movies,],]
+    );
 
     test(`must return FETCH_MOVIE_SUCCESS`, () => {
       return expectSaga(onFetchMovie, mockedActions.fetchMovieAction)
@@ -75,11 +82,21 @@ describe("Movies saga tests", () => {
         ])
         .put(mockedActions.fetchMovieFailedAction)
         .run()
-        .then(() => expect(Alert.alert).toHaveBeenLastCalledWith(infoTitle, errors.infoDescription + mockedData.errorMessage));
+        .then(() =>
+          expect(Alert.alert).toHaveBeenLastCalledWith(
+            infoTitle,
+            errors.infoDescription + mockedData.errorMessage
+          )
+        );
     });
 
-    testOnResponseOkFalse(onFetchMovie, mockedActions.fetchMovieAction, call(fetchMovie, mockedData.id), mockedActions.fetchMovieFailedAction, "FETCH_MOVIE", [
-      [select(selectors.getMovies), mockedData.movies,],
-    ]);
+    testOnResponseOkFalse(
+      onFetchMovie,
+      mockedActions.fetchMovieAction,
+      call(fetchMovie, mockedData.id),
+      mockedActions.fetchMovieFailedAction,
+      "FETCH_MOVIE",
+      [[select(selectors.getMovies), mockedData.movies,],]
+    );
   });
 });

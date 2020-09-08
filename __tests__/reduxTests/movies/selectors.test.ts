@@ -5,11 +5,15 @@ import { mockedData, } from "@tests/__mocks__";
 
 describe("Movies selectors tests", () => {
   test("must return currentSearchTitle from the state", () => {
-    expect(selectors.getCurrentSearchTitle({ ...initState, currentSearchTitle: mockedData.title, })).toEqual(mockedData.title);
+    expect(
+      selectors.getCurrentSearchTitle({ ...initState, currentSearchTitle: mockedData.title, })
+    ).toEqual(mockedData.title);
   });
 
   test("must return foundMovies from the state", () => {
-    expect(selectors.getMovies({ ...initState, foundMovies: mockedData.movies, })).toEqual(mockedData.movies);
+    expect(selectors.getMovies({ ...initState, foundMovies: mockedData.movies, })).toEqual(
+      mockedData.movies
+    );
   });
 
   test("must return nextSearchPage from the state", () => {

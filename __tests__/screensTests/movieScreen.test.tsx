@@ -38,7 +38,10 @@ describe("MovieScreen tests", () => {
     });
     snapshotTest(
       <Provider store={store}>
-        <MovieScreen {...props} route={{ params: { id: mockedData.id, title: mockedData.title, }, }} />
+        <MovieScreen
+          {...props}
+          route={{ params: { id: mockedData.id, title: mockedData.title, }, }}
+        />
       </Provider>
     );
   });
@@ -56,7 +59,10 @@ describe("MovieScreen tests", () => {
     });
     snapshotTest(
       <Provider store={store}>
-        <MovieScreen {...props} route={{ params: { id: mockedData.id, title: mockedData.title, }, }} />
+        <MovieScreen
+          {...props}
+          route={{ params: { id: mockedData.id, title: mockedData.title, }, }}
+        />
       </Provider>
     );
   });

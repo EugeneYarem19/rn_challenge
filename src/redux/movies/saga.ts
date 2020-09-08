@@ -1,14 +1,40 @@
-import { CallEffect, ForkEffect, PutEffect, SelectEffect, call, put, select, takeLatest, } from "redux-saga/effects";
+import {
+  CallEffect,
+  ForkEffect,
+  PutEffect,
+  SelectEffect,
+  call,
+  put,
+  select,
+  takeLatest,
+} from "redux-saga/effects";
 
 import { SearchResponse, MovieResponse, fetchMoreMovie, fetchMovie, getSearchResult, } from "@api";
-import { displayInfo, responseHandler, onFetchMovieFailed, onFetchMovieSuccess, onSearchFailed, onSearchSuccess, } from "@utils";
+import {
+  displayInfo,
+  responseHandler,
+  onFetchMovieFailed,
+  onFetchMovieSuccess,
+  onSearchFailed,
+  onSearchSuccess,
+} from "@utils";
 
-import { FetchMoreFailedAction, FetchMovieAction, FetchMovieFailedAction, Movie, ResponseHandlerReturnType, SearchAction, SearchFailedAction, } from "../types";
+import {
+  FetchMoreFailedAction,
+  FetchMovieAction,
+  FetchMovieFailedAction,
+  Movie,
+  ResponseHandlerReturnType,
+  SearchAction,
+  SearchFailedAction,
+} from "../types";
 import { actionTypes, actions, } from "./actions";
 import { errors, } from "@src/constants";
 import { selectors, } from "./selectors";
 
-export function* onFetchMore(): Generator<SelectEffect | CallEffect | ResponseHandlerReturnType | PutEffect<FetchMoreFailedAction>> {
+export function* onFetchMore(): Generator<
+  SelectEffect | CallEffect | ResponseHandlerReturnType | PutEffect<FetchMoreFailedAction>
+> {
   try {
     const title = (yield select(selectors.getCurrentSearchTitle)) as string;
     const nextPage = (yield select(selectors.getNextSearchPage)) as number;
@@ -17,7 +43,12 @@ export function* onFetchMore(): Generator<SelectEffect | CallEffect | ResponseHa
 
     console.warn("fetch more response", response);
 
-    yield responseHandler(response, onSearchSuccess(actions.fetchMoreSuccess), onSearchFailed(actions.fetchMoreFailed), actions.fetchMoreFailed);
+    yield responseHandler(
+      response,
+      onSearchSuccess(actions.fetchMoreSuccess),
+      onSearchFailed(actions.fetchMoreFailed),
+      actions.fetchMoreFailed
+    );
   } catch (error) {
     console.warn("onFetchMore error=", error);
     displayInfo((error as Error).message, errors.infoTitle);
@@ -25,13 +56,20 @@ export function* onFetchMore(): Generator<SelectEffect | CallEffect | ResponseHa
   }
 }
 
-export function* onSearch(action: SearchAction): Generator<CallEffect | ResponseHandlerReturnType | PutEffect<SearchFailedAction>> {
+export function* onSearch(
+  action: SearchAction
+): Generator<CallEffect | ResponseHandlerReturnType | PutEffect<SearchFailedAction>> {
   try {
     const response = (yield call(getSearchResult, action.payload.title)) as SearchResponse;
 
     console.warn("search response", response);
 
-    yield responseHandler(response, onSearchSuccess(actions.searchSuccess), onSearchFailed(actions.searchFailed), actions.searchFailed);
+    yield responseHandler(
+      response,
+      onSearchSuccess(actions.searchSuccess),
+      onSearchFailed(actions.searchFailed),
+      actions.searchFailed
+    );
   } catch (error) {
     console.warn("onSearch error=", error);
     displayInfo((error as Error).message, errors.infoTitle);
@@ -39,7 +77,11 @@ export function* onSearch(action: SearchAction): Generator<CallEffect | Response
   }
 }
 
-export function* onFetchMovie(action: FetchMovieAction): Generator<SelectEffect | CallEffect | ResponseHandlerReturnType | PutEffect<FetchMovieFailedAction>> {
+export function* onFetchMovie(
+  action: FetchMovieAction
+): Generator<
+  SelectEffect | CallEffect | ResponseHandlerReturnType | PutEffect<FetchMovieFailedAction>
+> {
   try {
     const id = action.payload.id;
 
@@ -57,7 +99,12 @@ export function* onFetchMovie(action: FetchMovieAction): Generator<SelectEffect 
 
     console.warn("fetch movie response", response);
 
-    yield responseHandler(response, onFetchMovieSuccess(id, actions.fetchMovieSuccess), onFetchMovieFailed(actions.fetchMovieFailed), actions.fetchMovieFailed);
+    yield responseHandler(
+      response,
+      onFetchMovieSuccess(id, actions.fetchMovieSuccess),
+      onFetchMovieFailed(actions.fetchMovieFailed),
+      actions.fetchMovieFailed
+    );
   } catch (error) {
     console.warn("onFetchMovie error=", error);
     displayInfo((error as Error).message, errors.infoTitle);

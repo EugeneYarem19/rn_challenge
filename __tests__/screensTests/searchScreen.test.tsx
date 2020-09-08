@@ -20,16 +20,37 @@ const props: any = {};
 
 describe("SearchScreen tests", () => {
   test("SearchResultItem must renders correctly with poster", () => {
-    snapshotTest(<SearchResultItem testID={mockedData.id} title={mockedData.title} poster={mockedData.movies[0].poster} onPress={() => null} />);
+    snapshotTest(
+      <SearchResultItem
+        testID={mockedData.id}
+        title={mockedData.title}
+        poster={mockedData.movies[0].poster}
+        onPress={() => null}
+      />
+    );
   });
 
   test("SearchResultItem must renders correctly without poster", () => {
-    snapshotTest(<SearchResultItem testID={mockedData.id} title={mockedData.title} poster="" onPress={() => null} />);
+    snapshotTest(
+      <SearchResultItem
+        testID={mockedData.id}
+        title={mockedData.title}
+        poster=""
+        onPress={() => null}
+      />
+    );
   });
 
   test("SearchResultItem must be clickable", () => {
     const onPress = jest.fn();
-    const { getByTestId, } = render(<SearchResultItem testID={mockedData.id} title={mockedData.title} poster="" onPress={onPress} />);
+    const { getByTestId, } = render(
+      <SearchResultItem
+        testID={mockedData.id}
+        title={mockedData.title}
+        poster=""
+        onPress={onPress}
+      />
+    );
 
     fireEvent.press(getByTestId(mockedData.id));
 
@@ -120,6 +141,9 @@ describe("SearchScreen tests", () => {
     fireEvent.press(getByTestId(mockedData.id));
 
     expect(dispatch).toHaveBeenCalled();
-    expect(StackActions.push).toBeCalledWith("Movie", { id: mockedData.id, title: mockedData.title, });
+    expect(StackActions.push).toBeCalledWith("Movie", {
+      id: mockedData.id,
+      title: mockedData.title,
+    });
   });
 });

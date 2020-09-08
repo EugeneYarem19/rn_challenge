@@ -105,6 +105,7 @@ module.exports = {
     "@typescript-eslint/no-unsafe-member-access": 0,
     "@typescript-eslint/no-unsafe-call": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
+    "no-shadow": 0,
   },
   globals: {
     __DEV__: true,

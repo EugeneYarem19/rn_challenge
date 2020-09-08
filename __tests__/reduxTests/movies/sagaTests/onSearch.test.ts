@@ -19,7 +19,13 @@ jest.mock("react-native", () => ({
 
 describe("Movies saga tests", () => {
   describe("onSearch saga tests", () => {
-    testOnApiInstanceError(onSearch, mockedActions.findMoviesAction, call(getSearchResult, mockedData.title), mockedActions.searchFailedNoMessageAction, "SEARCH");
+    testOnApiInstanceError(
+      onSearch,
+      mockedActions.findMoviesAction,
+      call(getSearchResult, mockedData.title),
+      mockedActions.searchFailedNoMessageAction,
+      "SEARCH"
+    );
     testOnThatsAllSuccessResponse(
       onSearch,
       mockedActions.findMoviesAction,
@@ -27,8 +33,26 @@ describe("Movies saga tests", () => {
       mockedActions.searchSuccessThatsAllAction,
       "SEARCH"
     );
-    testOnThatsNotAllSuccessResponse(onSearch, mockedActions.findMoviesAction, call(getSearchResult, mockedData.title), mockedActions.searchSuccessAction, "SEARCH");
-    testOnFalseResponse(onSearch, mockedActions.findMoviesAction, call(getSearchResult, mockedData.title), mockedActions.searchFailedAction, "SEARCH");
-    testOnResponseOkFalse(onSearch, mockedActions.findMoviesAction, call(getSearchResult, mockedData.title), mockedActions.searchFailedNoMessageAction, "SEARCH");
+    testOnThatsNotAllSuccessResponse(
+      onSearch,
+      mockedActions.findMoviesAction,
+      call(getSearchResult, mockedData.title),
+      mockedActions.searchSuccessAction,
+      "SEARCH"
+    );
+    testOnFalseResponse(
+      onSearch,
+      mockedActions.findMoviesAction,
+      call(getSearchResult, mockedData.title),
+      mockedActions.searchFailedAction,
+      "SEARCH"
+    );
+    testOnResponseOkFalse(
+      onSearch,
+      mockedActions.findMoviesAction,
+      call(getSearchResult, mockedData.title),
+      mockedActions.searchFailedNoMessageAction,
+      "SEARCH"
+    );
   });
 });
