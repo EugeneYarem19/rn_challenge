@@ -14,6 +14,7 @@ module.exports = {
           '@utils': './src/utils/index.ts',
           '@theme': './src/theme/index.ts',
           '@components': './src/components/index.ts',
+          '@tests': './__tests__',
         },
       },
     ],

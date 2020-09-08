@@ -1,8 +1,8 @@
 import { initState, moviesReducer as Reducer, } from "@src/redux/movies";
 
-import { mockedActions, mockedData, } from "../mockedData";
+import { mockedActions, mockedData, } from "@tests/__mocks__";
 
-describe("reducer tests", () => {
+describe("Movies reducer tests", () => {
   test("must return initial state", () => {
     expect(Reducer(undefined, { type: "", })).toEqual(initState);
   });

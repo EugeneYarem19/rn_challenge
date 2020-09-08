@@ -4,12 +4,11 @@ import { Provider, } from "react-redux";
 import { StackActions, } from "@react-navigation/native";
 import { render, fireEvent, } from "@testing-library/react-native";
 
-import { MovieScreen, SearchScreen, } from "@screens";
-import { DetailsItem, Rating, } from "@src/screens/MovieScreen/components";
+import { SearchScreen, } from "@screens";
 import { SearchResultItem, } from "@src/screens/SearchScreen/components";
 
-import snapshotTest from "../snapshotTestUtil";
-import { mockedData, } from "../mockedData";
+import { mockedData, } from "@tests/__mocks__";
+import { snapshotTest, } from "@tests/__utils__";
 
 jest.mock("@react-navigation/native", () => ({
   __esModule: true,
@@ -19,7 +18,7 @@ jest.mock("@react-navigation/native", () => ({
 const mockStore = configureStore([]);
 const props: any = {};
 
-describe("screens tests", () => {
+describe("SearchScreen tests", () => {
   test("SearchResultItem must renders correctly with poster", () => {
     snapshotTest(<SearchResultItem testID={mockedData.id} title={mockedData.title} poster={mockedData.movies[0].poster} onPress={() => null} />);
   });
@@ -122,54 +121,5 @@ describe("screens tests", () => {
 
     expect(dispatch).toHaveBeenCalled();
     expect(StackActions.push).toBeCalledWith("Movie", { id: mockedData.id, title: mockedData.title, });
-  });
-
-  test("DetailsItem must renders correctly", () => {
-    snapshotTest(<DetailsItem title="title" value="value" />);
-  });
-
-  test("Rating must renders correctly", () => {
-    snapshotTest(<Rating ratings={[{ source: "source", value: "value", },]} />);
-  });
-
-  test("MovieScreen must renders correctly with all props", () => {
-    const store = mockStore({
-      isFetchingMovie: false,
-      foundMovies: [
-        {
-          id: mockedData.id,
-          poster: "http://",
-          title: "Title",
-          genre: "Genre",
-          director: "Director",
-          fullPlot: "Plot",
-          cast: "Cast",
-          ratings: [{ source: "source", value: "value", },],
-        },
-      ],
-    });
-    snapshotTest(
-      <Provider store={store}>
-        <MovieScreen {...props} route={{ params: { id: mockedData.id, title: mockedData.title, }, }} />
-      </Provider>
-    );
-  });
-
-  test("MovieScreen must display loading indicator", () => {
-    const store = mockStore({
-      isFetchingMovie: true,
-      foundMovies: [
-        {
-          id: mockedData.id,
-          poster: "http://",
-          title: "Title",
-        },
-      ],
-    });
-    snapshotTest(
-      <Provider store={store}>
-        <MovieScreen {...props} route={{ params: { id: mockedData.id, title: mockedData.title, }, }} />
-      </Provider>
-    );
   });
 });

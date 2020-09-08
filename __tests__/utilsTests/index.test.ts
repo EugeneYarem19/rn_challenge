@@ -2,7 +2,7 @@ import { Alert, } from "react-native";
 
 import { displayInfo, networkErrorHandler, } from "@utils";
 
-import { mockedData, } from "../mockedData";
+import { mockedData, } from "@tests/__mocks__";
 
 jest.mock("react-native", () => ({
   __esModule: true,

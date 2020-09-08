@@ -1,8 +1,8 @@
 import { moviesActions, } from "@redux";
 
-import { mockedActions, mockedData, } from "../mockedData";
+import { mockedActions, mockedData, } from "@tests/__mocks__";
 
-describe("actions tests", () => {
+describe("Movies actions tests", () => {
   test("must create an action to find movies by title", () => {
     expect(moviesActions.findMovies(mockedData.title)).toEqual(mockedActions.findMoviesAction);
   });

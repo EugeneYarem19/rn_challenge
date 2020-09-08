@@ -1,9 +1,9 @@
 import { initState, } from "@src/redux/movies";
 import { selectors, } from "@src/redux/movies/selectors";
 
-import { mockedData, } from "../mockedData";
+import { mockedData, } from "@tests/__mocks__";
 
-describe("selectors tests", () => {
+describe("Movies selectors tests", () => {
   test("must return currentSearchTitle from the state", () => {
     expect(selectors.getCurrentSearchTitle({ ...initState, currentSearchTitle: mockedData.title, })).toEqual(mockedData.title);
   });
