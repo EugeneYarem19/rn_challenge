@@ -1,6 +1,6 @@
 import { Movie, } from "@redux";
 
-export interface ISearchScreen {
+export interface ISearchScreenComponent {
   fetchMore: () => void;
   foundMovies: Movie[];
   isFetchingMore: boolean;

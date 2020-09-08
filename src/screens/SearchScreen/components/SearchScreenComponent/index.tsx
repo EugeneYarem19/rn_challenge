@@ -3,10 +3,17 @@ import { FlatList, Text, View, } from "react-native";
 
 import { LoadingIndicator, } from "@components";
 
-import { ISearchScreen, } from "./types";
+import { ISearchScreenComponent, } from "./types";
 import { styles, } from "./styles";
 
-export const SearchScreen: React.FC<ISearchScreen> = ({ fetchMore, foundMovies, isFetchingMore, isSearching, renderItem, searchErrorMessage, }): JSX.Element => (
+export const SearchScreenComponent: React.FC<ISearchScreenComponent> = ({
+  fetchMore,
+  foundMovies,
+  isFetchingMore,
+  isSearching,
+  renderItem,
+  searchErrorMessage,
+}) => (
   <View style={styles.screen}>
     {isSearching ? (
       <LoadingIndicator />

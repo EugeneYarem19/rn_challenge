@@ -1,2 +1,2 @@
 export * from "./SearchResultItem";
-export * from "./SearchScreen";
+export * from "./SearchScreenComponent";

@@ -3,7 +3,7 @@ import React from "react";
 import { Movie, } from "@redux";
 
 import { ISearchScreen, } from "./types";
-import { SearchScreen as SearchScreenComponent, } from "./components";
+import { SearchScreenComponent, } from "./components";
 import { SearchResultItem, } from "./components";
 import { useSearchScreen, } from "./hooks";
 
