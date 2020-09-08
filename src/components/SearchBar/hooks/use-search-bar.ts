@@ -21,7 +21,7 @@ export const useSearchBar = () => {
     }
 
     Keyboard.dismiss();
-    dispatch(moviesActions.findMovies(searchTitle));
+    dispatch(moviesActions.findMovies(searchTitle.trim()));
   }, [dispatch, currentSearchTitle, searchTitle,]);
 
   const updateSearchTitle = useCallback((title) => setSearchTitle(title), [setSearchTitle,]);
