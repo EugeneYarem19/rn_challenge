@@ -8,12 +8,26 @@ import { SearchResultItem, } from "./components";
 import { useSearchScreen, } from "./hooks";
 
 export const SearchScreen: React.FC<ISearchScreen> = ({ navigation, }) => {
-  const { isFetchingMore, isSearching, foundMovies, searchErrorMessage, fetchMore, handleOnPressMovie, } = useSearchScreen(navigation);
+  const {
+    isFetchingMore,
+    isSearching,
+    foundMovies,
+    searchErrorMessage,
+    fetchMore,
+    handleOnPressMovie,
+  } = useSearchScreen(navigation);
 
   const renderItem = (renderElementItem: { item: Movie }) => {
     const { id, title, poster, } = renderElementItem.item;
 
-    return <SearchResultItem title={title} testID={id} poster={poster} onPress={() => handleOnPressMovie(id, title)} />;
+    return (
+      <SearchResultItem
+        title={title}
+        testID={id}
+        poster={poster}
+        onPress={() => handleOnPressMovie(id, title)}
+      />
+    );
   };
 
   return (

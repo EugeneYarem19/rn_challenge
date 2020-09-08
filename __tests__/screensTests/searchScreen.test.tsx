@@ -6,6 +6,7 @@ import { render, fireEvent, } from "@testing-library/react-native";
 
 import { SearchScreen, } from "@screens";
 import { SearchResultItem, } from "@src/screens/SearchScreen/components";
+import { StackNavigationNames, } from "@src/constants";
 
 import { mockedData, } from "@tests/__mocks__";
 import { snapshotTest, } from "@tests/__utils__";
@@ -141,7 +142,7 @@ describe("SearchScreen tests", () => {
     fireEvent.press(getByTestId(mockedData.id));
 
     expect(dispatch).toHaveBeenCalled();
-    expect(StackActions.push).toBeCalledWith("Movie", {
+    expect(StackActions.push).toBeCalledWith(StackNavigationNames.movie, {
       id: mockedData.id,
       title: mockedData.title,
     });

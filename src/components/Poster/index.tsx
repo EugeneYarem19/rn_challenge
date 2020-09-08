@@ -5,43 +5,44 @@ import { View, } from "react-native";
 
 import { LoadingIndicator, } from "@components";
 
-import { IPoster, } from "./types";
+import { IPoster, ImageSize, } from "./types";
 import { styles, } from "./styles";
 import { usePoster, } from "./hooks";
 
-export const Poster: React.FC<IPoster> = ({ poster, size = "small", smallOnEmptyPoster = true, smallOnError = true, style, }) => {
+export const Poster: React.FC<IPoster> = ({
+  poster,
+  size = ImageSize.small,
+  smallOnEmptyPoster = true,
+  smallOnError = true,
+  style,
+}) => {
+  const sizeStyle = size === ImageSize.small ? styles.small : styles.large;
   const { loadError, onError, } = usePoster();
 
-  let sizeStyle;
-  switch (size) {
-    case "small":
-      sizeStyle = styles.small;
-      break;
-    case "large":
-      sizeStyle = styles.large;
-      break;
-  }
-
-  const Img = loadError ? (
-    <View style={{ ...styles.placeholder, ...(smallOnError ? styles.small : sizeStyle), ...style, }}>
-      <Icon name="wallpaper" size={50} />
-    </View>
-  ) : (
-    <ProgressImage
-      source={{ uri: poster, }}
-      indicator={LoadingIndicator}
-      onError={onError}
-      resizeMode="contain"
-      style={{ ...styles.poster, ...sizeStyle, ...style, }}
-      threshold={0}
-    />
-  );
-
-  return poster ? (
-    <>{Img}</>
-  ) : (
-    <View style={{ ...styles.placeholder, ...(smallOnEmptyPoster ? styles.small : sizeStyle), ...style, }}>
+  const renderPlaceholder = (additionalSizedStyle: typeof style) => (
+    <View style={[styles.placeholder, additionalSizedStyle, style,]}>
       <Icon name="wallpaper" size={50} />
     </View>
   );
+
+  const renderPosterIcon = () => {
+    if (loadError) {
+      return renderPlaceholder(smallOnError ? styles.small : sizeStyle);
+    } else if (!poster) {
+      return renderPlaceholder(smallOnEmptyPoster ? styles.small : sizeStyle);
+    } else {
+      return (
+        <ProgressImage
+          source={{ uri: poster, }}
+          indicator={LoadingIndicator}
+          onError={onError}
+          resizeMode="contain"
+          style={[styles.poster, sizeStyle, style,]}
+          threshold={0}
+        />
+      );
+    }
+  };
+
+  return renderPosterIcon();
 };

@@ -36,13 +36,19 @@ exports[`SearchScreen tests SearchResultItem must renders correctly with poster 
   >
     <View
       style={
-        Object {
-          "backgroundColor": "#131d3d",
-          "borderRadius": 8,
-          "height": 180,
-          "marginTop": -35,
-          "width": 122,
-        }
+        Array [
+          Object {
+            "backgroundColor": "#131d3d",
+            "borderRadius": 8,
+          },
+          Object {
+            "height": 180,
+            "width": 122,
+          },
+          Object {
+            "marginTop": -35,
+          },
+        ]
       }
     >
       <Image
@@ -145,16 +151,22 @@ exports[`SearchScreen tests SearchResultItem must renders correctly without post
   >
     <View
       style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "#131d3d",
-          "borderRadius": 8,
-          "flexDirection": "column",
-          "height": 180,
-          "justifyContent": "center",
-          "marginTop": -35,
-          "width": 122,
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#131d3d",
+            "borderRadius": 8,
+            "flexDirection": "column",
+            "justifyContent": "center",
+          },
+          Object {
+            "height": 180,
+            "width": 122,
+          },
+          Object {
+            "marginTop": -35,
+          },
+        ]
       }
     >
       <Text
@@ -249,6 +261,32 @@ exports[`SearchScreen tests SearchScreen must render loader if searching even if
     hidesWhenStopped={true}
     size="large"
   />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#1e3166",
+        "borderRadius": 5,
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginTop": 25,
+        "minHeight": 60,
+        "padding": 16,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#e59f2b",
+          "fontSize": 21,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Error
+    </Text>
+  </View>
 </View>
 `;
 
@@ -346,13 +384,19 @@ exports[`SearchScreen tests SearchScreen must render movies list 1`] = `
           >
             <View
               style={
-                Object {
-                  "backgroundColor": "#131d3d",
-                  "borderRadius": 8,
-                  "height": 180,
-                  "marginTop": -35,
-                  "width": 122,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "#131d3d",
+                    "borderRadius": 8,
+                  },
+                  Object {
+                    "height": 180,
+                    "width": 122,
+                  },
+                  Object {
+                    "marginTop": -35,
+                  },
+                ]
               }
             >
               <Image
@@ -517,13 +561,19 @@ exports[`SearchScreen tests SearchScreen must render movies list and bottom load
           >
             <View
               style={
-                Object {
-                  "backgroundColor": "#131d3d",
-                  "borderRadius": 8,
-                  "height": 180,
-                  "marginTop": -35,
-                  "width": 122,
-                }
+                Array [
+                  Object {
+                    "backgroundColor": "#131d3d",
+                    "borderRadius": 8,
+                  },
+                  Object {
+                    "height": 180,
+                    "width": 122,
+                  },
+                  Object {
+                    "marginTop": -35,
+                  },
+                ]
               }
             >
               <Image

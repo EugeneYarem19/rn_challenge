@@ -6,11 +6,17 @@ import { LoadingIndicator, } from "@components";
 import { ISearchScreenComponent, } from "./types";
 import { styles, } from "./styles";
 
-export const SearchScreenComponent: React.FC<ISearchScreenComponent> = ({ fetchMore, foundMovies, isFetchingMore, isSearching, renderItem, searchErrorMessage, }) => (
+export const SearchScreenComponent: React.FC<ISearchScreenComponent> = ({
+  fetchMore,
+  foundMovies,
+  isFetchingMore,
+  isSearching,
+  renderItem,
+  searchErrorMessage,
+}) => (
   <View style={styles.screen}>
-    {isSearching ? (
-      <LoadingIndicator />
-    ) : searchErrorMessage !== "" ? (
+    {isSearching && <LoadingIndicator />}
+    {searchErrorMessage !== "" ? (
       <View style={styles.errorMessageBlock}>
         <Text style={styles.errorMessageText}>{searchErrorMessage}</Text>
       </View>

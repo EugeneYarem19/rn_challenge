@@ -68,18 +68,25 @@ exports[`MovieScreen tests MovieScreen must display loading indicator 1`] = `
     </Text>
     <View
       style={
-        Object {
-          "backgroundColor": "#1e3166",
-          "borderColor": "#1e3166",
-          "borderRadius": 8,
-          "borderWidth": 4,
-          "height": 1027.6,
-          "marginBottom": 15,
-          "marginTop": 15,
-          "maxHeight": 443,
-          "maxWidth": 300,
-          "width": 734,
-        }
+        Array [
+          Object {
+            "backgroundColor": "#131d3d",
+            "borderRadius": 8,
+          },
+          Object {
+            "height": 1027.6,
+            "maxHeight": 443,
+            "maxWidth": 300,
+            "width": 734,
+          },
+          Object {
+            "backgroundColor": "#1e3166",
+            "borderColor": "#1e3166",
+            "borderWidth": 4,
+            "marginBottom": 15,
+            "marginTop": 15,
+          },
+        ]
       }
     >
       <Image
@@ -170,18 +177,25 @@ exports[`MovieScreen tests MovieScreen must renders correctly with all props 1`]
     </Text>
     <View
       style={
-        Object {
-          "backgroundColor": "#1e3166",
-          "borderColor": "#1e3166",
-          "borderRadius": 8,
-          "borderWidth": 4,
-          "height": 1027.6,
-          "marginBottom": 15,
-          "marginTop": 15,
-          "maxHeight": 443,
-          "maxWidth": 300,
-          "width": 734,
-        }
+        Array [
+          Object {
+            "backgroundColor": "#131d3d",
+            "borderRadius": 8,
+          },
+          Object {
+            "height": 1027.6,
+            "maxHeight": 443,
+            "maxWidth": 300,
+            "width": 734,
+          },
+          Object {
+            "backgroundColor": "#1e3166",
+            "borderColor": "#1e3166",
+            "borderWidth": 4,
+            "marginBottom": 15,
+            "marginTop": 15,
+          },
+        ]
       }
     >
       <Image

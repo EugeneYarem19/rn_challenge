@@ -3,12 +3,17 @@
 exports[`Poster tests Poster must renders correctly with set poster 1`] = `
 <View
   style={
-    Object {
-      "backgroundColor": "#131d3d",
-      "borderRadius": 8,
-      "height": 180,
-      "width": 122,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#131d3d",
+        "borderRadius": 8,
+      },
+      Object {
+        "height": 180,
+        "width": 122,
+      },
+      undefined,
+    ]
   }
 >
   <Image
@@ -62,14 +67,19 @@ exports[`Poster tests Poster must renders correctly with set poster 1`] = `
 exports[`Poster tests Poster must renders correctly with set poster and size = 'large' 1`] = `
 <View
   style={
-    Object {
-      "backgroundColor": "#131d3d",
-      "borderRadius": 8,
-      "height": 1027.6,
-      "maxHeight": 443,
-      "maxWidth": 300,
-      "width": 734,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#131d3d",
+        "borderRadius": 8,
+      },
+      Object {
+        "height": 1027.6,
+        "maxHeight": 443,
+        "maxWidth": 300,
+        "width": 734,
+      },
+      undefined,
+    ]
   }
 >
   <Image
@@ -123,12 +133,17 @@ exports[`Poster tests Poster must renders correctly with set poster and size = '
 exports[`Poster tests Poster must renders correctly with set poster and size = 'small' 1`] = `
 <View
   style={
-    Object {
-      "backgroundColor": "#131d3d",
-      "borderRadius": 8,
-      "height": 180,
-      "width": 122,
-    }
+    Array [
+      Object {
+        "backgroundColor": "#131d3d",
+        "borderRadius": 8,
+      },
+      Object {
+        "height": 180,
+        "width": 122,
+      },
+      undefined,
+    ]
   }
 >
   <Image
@@ -182,15 +197,20 @@ exports[`Poster tests Poster must renders correctly with set poster and size = '
 exports[`Poster tests Poster must renders correctly without set poster 1`] = `
 <View
   style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#131d3d",
-      "borderRadius": 8,
-      "flexDirection": "column",
-      "height": 180,
-      "justifyContent": "center",
-      "width": 122,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#131d3d",
+        "borderRadius": 8,
+        "flexDirection": "column",
+        "justifyContent": "center",
+      },
+      Object {
+        "height": 180,
+        "width": 122,
+      },
+      undefined,
+    ]
   }
 >
   <Text
@@ -219,15 +239,20 @@ exports[`Poster tests Poster must renders correctly without set poster 1`] = `
 exports[`Poster tests Poster must renders correctly without set poster and size = 'large' 1`] = `
 <View
   style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#131d3d",
-      "borderRadius": 8,
-      "flexDirection": "column",
-      "height": 180,
-      "justifyContent": "center",
-      "width": 122,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#131d3d",
+        "borderRadius": 8,
+        "flexDirection": "column",
+        "justifyContent": "center",
+      },
+      Object {
+        "height": 180,
+        "width": 122,
+      },
+      undefined,
+    ]
   }
 >
   <Text
@@ -256,17 +281,22 @@ exports[`Poster tests Poster must renders correctly without set poster and size 
 exports[`Poster tests Poster must renders correctly without set poster and size = 'large' and smallOnEmptyPoster = 'false' 1`] = `
 <View
   style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#131d3d",
-      "borderRadius": 8,
-      "flexDirection": "column",
-      "height": 1027.6,
-      "justifyContent": "center",
-      "maxHeight": 443,
-      "maxWidth": 300,
-      "width": 734,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#131d3d",
+        "borderRadius": 8,
+        "flexDirection": "column",
+        "justifyContent": "center",
+      },
+      Object {
+        "height": 1027.6,
+        "maxHeight": 443,
+        "maxWidth": 300,
+        "width": 734,
+      },
+      undefined,
+    ]
   }
 >
   <Text
@@ -295,15 +325,20 @@ exports[`Poster tests Poster must renders correctly without set poster and size 
 exports[`Poster tests Poster must renders correctly without set poster and size = 'small' 1`] = `
 <View
   style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#131d3d",
-      "borderRadius": 8,
-      "flexDirection": "column",
-      "height": 180,
-      "justifyContent": "center",
-      "width": 122,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#131d3d",
+        "borderRadius": 8,
+        "flexDirection": "column",
+        "justifyContent": "center",
+      },
+      Object {
+        "height": 180,
+        "width": 122,
+      },
+      undefined,
+    ]
   }
 >
   <Text
@@ -332,15 +367,20 @@ exports[`Poster tests Poster must renders correctly without set poster and size 
 exports[`Poster tests Poster must renders correctly without set poster and size = 'small' and smallOnEmptyPoster = 'false' 1`] = `
 <View
   style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#131d3d",
-      "borderRadius": 8,
-      "flexDirection": "column",
-      "height": 180,
-      "justifyContent": "center",
-      "width": 122,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#131d3d",
+        "borderRadius": 8,
+        "flexDirection": "column",
+        "justifyContent": "center",
+      },
+      Object {
+        "height": 180,
+        "width": 122,
+      },
+      undefined,
+    ]
   }
 >
   <Text

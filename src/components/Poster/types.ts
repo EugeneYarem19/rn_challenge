@@ -1,9 +1,14 @@
-type ImageSize = "small" | "large";
+import { StyleProp, ViewStyle, } from "react-native";
+
+export enum ImageSize {
+  small = "small",
+  large = "large",
+}
 
 export interface IPoster {
   poster: string | undefined;
   size?: ImageSize;
   smallOnEmptyPoster?: boolean;
   smallOnError?: boolean;
-  style?: Record<string, unknown> | null;
+  style?: StyleProp<ViewStyle>;
 }

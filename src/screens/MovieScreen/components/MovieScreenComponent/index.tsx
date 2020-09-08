@@ -1,6 +1,7 @@
 import React from "react";
 import { ScrollView, Text, } from "react-native";
 
+import { ImageSize, } from "@src/components/Poster/types";
 import { LoadingIndicator, Poster, } from "@components";
 
 import { DetailsItem, Rating, } from "../";
@@ -29,9 +30,13 @@ export const MovieScreenComponent: React.FC<IMovieScreenComponent> = ({
   );
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={styles.screenContainer} bounces={false}>
+    <ScrollView
+      style={styles.screen}
+      contentContainerStyle={styles.screenContainer}
+      bounces={false}
+    >
       <Text style={styles.title}>{title || defaultTitle}</Text>
-      <Poster poster={poster} size="large" style={styles.poster} />
+      <Poster poster={poster} size={ImageSize.large} style={styles.poster} />
       {isFetchingMovie ? <LoadingIndicator /> : <>{Content}</>}
     </ScrollView>
   );
