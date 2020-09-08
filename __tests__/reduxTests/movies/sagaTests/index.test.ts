@@ -12,21 +12,21 @@ describe("Movies saga tests", () => {
       return expectSaga(Saga)
         .dispatch(mockedActions.findMoviesAction)
         .call.like({ fn: getSearchResult, }) // call of onSearch saga can be tested by first call effect in onSearch saga
-        .run();
+        .silentRun();
     });
 
     test("must call onFetchMore saga on FETCH_MORE_REQUEST", () => {
       return expectSaga(Saga)
         .dispatch(mockedActions.fetchMoreAction)
         .select.like({ selector: selectors.getCurrentSearchTitle, }) // call of onFetchMore saga can be tested by first select effect in onFetchMore saga
-        .run();
+        .silentRun();
     });
 
     test("must call onFetchMovie saga on FETCH_MOVIE_REQUEST", () => {
       return expectSaga(Saga)
         .dispatch(mockedActions.fetchMovieAction)
         .select.like({ selector: selectors.getMovies, }) // call of onFetchMovie saga can be tested by first select effect in onFetchMovie saga
-        .run();
+        .silentRun();
     });
   });
 });
