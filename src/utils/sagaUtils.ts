@@ -21,8 +21,9 @@ import {
   SearchSuccessAction,
   moviesActions,
 } from "@redux";
-import { displayInfo, networkErrorHandler, } from "@utils";
+import { displayInfo, } from "./displayInfo";
 import { errors, } from "@src/constants";
+import { networkErrorHandler, } from "./networkErrorHandler";
 import { selectors, } from "@src/redux/movies/selectors";
 
 export function* responseHandler<T extends IResponse, U extends IAction>(

@@ -3,7 +3,7 @@ import ProgressImage from "react-native-image-progress";
 import { Icon, } from "react-native-material-ui";
 import { View, } from "react-native";
 
-import { LoadingIndicator, } from "@components";
+import { LoadingIndicator, } from "../LoadingIndicator";
 
 import { IPoster, ImageSize, } from "./types";
 import { styles, } from "./styles";

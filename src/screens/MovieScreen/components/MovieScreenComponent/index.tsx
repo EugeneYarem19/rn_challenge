@@ -4,7 +4,8 @@ import { ScrollView, Text, } from "react-native";
 import { ImageSize, } from "@src/components/Poster/types";
 import { LoadingIndicator, Poster, } from "@components";
 
-import { DetailsItem, Rating, } from "../";
+import { DetailsItem, } from "../DetailsItem";
+import { Rating, } from "../Rating";
 import { IMovieScreenComponent, } from "./types";
 import { styles, } from "./styles";
 
